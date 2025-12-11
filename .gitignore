@@ -1,0 +1,25 @@
+# IGNORE ENVIRONMENTS
+venv/
+venv310/
+
+# IGNORE SPARK OUTPUT
+clean_bitcoin/
+spark-warehouse/
+derby.log/
+
+# IGNORE PRODUCER & STREAMING FILES (GitHub'a koymayacaksın)
+bitcoin_producer.py
+producer.py
+spark_stream.py
+spark_stream_bitcoin.py
+
+# IGNORE DATA FILES
+coin_Bitcoin.csv
+*.csv
+
+# IGNORE SYSTEM FILES
+__pycache__/
+*.pyc
+.DS_Store
+Thumbs.db
+
