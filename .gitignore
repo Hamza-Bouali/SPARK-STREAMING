@@ -21,9 +21,11 @@ __pycache__/
 .DS_Store
 Thumbs.db
 
-
+*.env*
 bitcoin_model/*/*
 
 checkpoint/*
 
 *.log
+
+*.txt*

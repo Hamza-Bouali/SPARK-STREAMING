@@ -79,7 +79,7 @@ services:
     command: python spark_realtime_ml.py
     environment:
       - KAFKA_BOOTSTRAP_SERVERS=kafka:29092
-      - JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
+      - JAVA_HOME=/usr/lib/jvm/temurin-17-jre-amd64
     volumes:
       - ./checkpoint:/app/checkpoint
       - ./bitcoin_model:/app/bitcoin_model
@@ -97,7 +97,7 @@ services:
     ports:
       - "8000:8000"
     environment:
-      - JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
+      - JAVA_HOME=/usr/lib/jvm/temurin-17-jre-amd64
     volumes:
       - ./bitcoin_model:/app/bitcoin_model
     restart: unless-stopped
