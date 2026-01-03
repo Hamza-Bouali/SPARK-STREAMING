@@ -1,0 +1,1204 @@
+nohup: ignoring input
+WARNING: Using incubator modules: jdk.incubator.vector
+:: loading settings :: url = jar:file:/home/azureuser/bitcoin_spark/bitcoin-realtime-analytics/.venv/lib/python3.12/site-packages/pyspark/jars/ivy-2.5.3.jar!/org/apache/ivy/core/settings/ivysettings.xml
+Ivy Default Cache set to: /home/azureuser/.ivy2.5.2/cache
+The jars for the packages stored in: /home/azureuser/.ivy2.5.2/jars
+org.apache.spark#spark-sql-kafka-0-10_2.13 added as a dependency
+:: resolving dependencies :: org.apache.spark#spark-submit-parent-7078f7bc-f4c4-495f-8e0d-51c9fa7e098e;1.0
+	confs: [default]
+	found org.apache.spark#spark-sql-kafka-0-10_2.13;4.1.0 in central
+	found org.apache.spark#spark-token-provider-kafka-0-10_2.13;4.1.0 in central
+	found org.apache.kafka#kafka-clients;3.9.1 in central
+	found org.lz4#lz4-java;1.8.0 in central
+	found org.xerial.snappy#snappy-java;1.1.10.8 in central
+	found org.slf4j#slf4j-api;2.0.17 in central
+	found org.apache.hadoop#hadoop-client-runtime;3.4.2 in central
+	found org.apache.hadoop#hadoop-client-api;3.4.2 in central
+	found com.google.code.findbugs#jsr305;3.0.0 in central
+	found org.scala-lang.modules#scala-parallel-collections_2.13;1.2.0 in central
+	found org.apache.commons#commons-pool2;2.12.1 in central
+:: resolution report :: resolve 1104ms :: artifacts dl 19ms
+	:: modules in use:
+	com.google.code.findbugs#jsr305;3.0.0 from central in [default]
+	org.apache.commons#commons-pool2;2.12.1 from central in [default]
+	org.apache.hadoop#hadoop-client-api;3.4.2 from central in [default]
+	org.apache.hadoop#hadoop-client-runtime;3.4.2 from central in [default]
+	org.apache.kafka#kafka-clients;3.9.1 from central in [default]
+	org.apache.spark#spark-sql-kafka-0-10_2.13;4.1.0 from central in [default]
+	org.apache.spark#spark-token-provider-kafka-0-10_2.13;4.1.0 from central in [default]
+	org.lz4#lz4-java;1.8.0 from central in [default]
+	org.scala-lang.modules#scala-parallel-collections_2.13;1.2.0 from central in [default]
+	org.slf4j#slf4j-api;2.0.17 from central in [default]
+	org.xerial.snappy#snappy-java;1.1.10.8 from central in [default]
+	---------------------------------------------------------------------
+	|                  |            modules            ||   artifacts   |
+	|       conf       | number| search|dwnlded|evicted|| number|dwnlded|
+	---------------------------------------------------------------------
+	|      default     |   11  |   0   |   0   |   0   ||   11  |   0   |
+	---------------------------------------------------------------------
+:: retrieving :: org.apache.spark#spark-submit-parent-7078f7bc-f4c4-495f-8e0d-51c9fa7e098e
+	confs: [default]
+	0 artifacts copied, 11 already retrieved (0kB/11ms)
+26/01/03 14:54:51 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+Using Spark's default log4j profile: org/apache/spark/log4j2-defaults.properties
+Setting default log level to "WARN".
+To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+26/01/03 14:55:00 WARN ResolveWriteToStream: spark.sql.adaptive.enabled is not supported in streaming DataFrames/Datasets and will be disabled.
+[Stage 0:>                                                          (0 + 1) / 1]                                                                                [Stage 3:>                                                          (0 + 1) / 1]                                                                                [Stage 6:>                                                          (0 + 1) / 1]                                                                                [Stage 9:>                                                          (0 + 1) / 1]                                                                                26/01/03 14:55:15 WARN Instrumentation: [0617d940] regParam is zero, which might cause numerical instability and overfitting.
+[Stage 12:>                                                         (0 + 1) / 1]26/01/03 14:55:17 WARN InstanceBuilder: Failed to load implementation from:dev.ludovic.netlib.blas.JNIBLAS
+                                                                                26/01/03 14:55:17 WARN InstanceBuilder: Failed to load implementation from:dev.ludovic.netlib.lapack.JNILAPACK
+[Stage 13:>                                                         (0 + 1) / 1]                                                                                [Stage 14:>                                                         (0 + 1) / 1]                                                                                [Stage 16:>                                                         (0 + 1) / 1]                                                                                26/01/03 15:01:54 WARN Instrumentation: [6214572e] regParam is zero, which might cause numerical instability and overfitting.
+26/01/03 15:01:57 WARN Instrumentation: [44ae2b58] regParam is zero, which might cause numerical instability and overfitting.
+26/01/03 15:01:59 WARN Instrumentation: [a8af45a2] regParam is zero, which might cause numerical instability and overfitting.
+26/01/03 15:02:01 WARN Instrumentation: [632861aa] regParam is zero, which might cause numerical instability and overfitting.
+26/01/03 15:02:03 WARN Instrumentation: [e50e94e9] regParam is zero, which might cause numerical instability and overfitting.
+26/01/03 15:02:04 WARN Instrumentation: [fa363759] regParam is zero, which might cause numerical instability and overfitting.
+26/01/03 15:02:06 WARN Instrumentation: [e6255af3] regParam is zero, which might cause numerical instability and overfitting.
+26/01/03 15:02:07 WARN Instrumentation: [e941385f] regParam is zero, which might cause numerical instability and overfitting.
+26/01/03 15:02:09 WARN Instrumentation: [eec6056b] regParam is zero, which might cause numerical instability and overfitting.
+26/01/03 15:02:11 WARN Instrumentation: [94aea8a7] regParam is zero, which might cause numerical instability and overfitting.
+26/01/03 15:02:13 WARN Instrumentation: [f9825bc3] regParam is zero, which might cause numerical instability and overfitting.
+26/01/03 15:02:14 WARN Instrumentation: [68f0deca] regParam is zero, which might cause numerical instability and overfitting.
+26/01/03 15:02:15 WARN Instrumentation: [cf1e98a4] regParam is zero, which might cause numerical instability and overfitting.
+26/01/03 15:02:17 WARN Instrumentation: [480f5dce] regParam is zero, which might cause numerical instability and overfitting.
+26/01/03 15:02:18 WARN Instrumentation: [1394e950] regParam is zero, which might cause numerical instability and overfitting.
+26/01/03 15:02:19 WARN Instrumentation: [97f4cc87] regParam is zero, which might cause numerical instability and overfitting.
+26/01/03 15:02:21 WARN Instrumentation: [09219ed8] regParam is zero, which might cause numerical instability and overfitting.
+26/01/03 15:02:22 WARN Instrumentation: [d61b1029] regParam is zero, which might cause numerical instability and overfitting.
+26/01/03 15:02:25 WARN Instrumentation: [16488d48] regParam is zero, which might cause numerical instability and overfitting.
+26/01/03 15:02:27 WARN Instrumentation: [1f69766e] regParam is zero, which might cause numerical instability and overfitting.
+26/01/03 15:02:30 WARN Instrumentation: [e9ce7a53] regParam is zero, which might cause numerical instability and overfitting.
+26/01/03 15:02:33 WARN Instrumentation: [1e3e8f14] regParam is zero, which might cause numerical instability and overfitting.
+26/01/03 15:02:36 WARN Instrumentation: [a15379ab] regParam is zero, which might cause numerical instability and overfitting.
+26/01/03 15:02:38 WARN Instrumentation: [78b56212] regParam is zero, which might cause numerical instability and overfitting.
+26/01/03 15:02:41 WARN Instrumentation: [1ab38894] regParam is zero, which might cause numerical instability and overfitting.
+26/01/03 15:02:43 WARN Instrumentation: [d5a418d7] regParam is zero, which might cause numerical instability and overfitting.
+26/01/03 15:02:45 WARN Instrumentation: [ea0326d4] regParam is zero, which might cause numerical instability and overfitting.
+26/01/03 15:02:48 WARN Instrumentation: [524fee49] regParam is zero, which might cause numerical instability and overfitting.
+26/01/03 15:02:50 WARN Instrumentation: [71f5ab35] regParam is zero, which might cause numerical instability and overfitting.
+🚀 Starting Bitcoin Real-time ML Pipeline...
+✅ Data cleaning applied
+✅ Streaming pipeline started!
+📡 Listening to Kafka topic 'bitcoin_prices'...
+🤖 Training model on each batch...
+
+📊 Processing Batch 0 with 18270 records
+✅ Batch 0 - Model trained!
+   📈 RMSE: 493.03
+   📊 Coefficients: [-0.5379794913445173,0.880001291103329,0.6551786729224777,1.358727156992378e-10]
+   🎯 Intercept: -10.41
+   💾 Model saved to /tmp/bitcoin_model
+
+📊 Processing Batch 1 with 1 records
+⚠️  Batch 1: Not enough data for training
+
+📊 Processing Batch 2 with 19 records
+✅ Batch 2 - Model trained!
+   📈 RMSE: 3.26
+   📊 Coefficients: [-0.9608519503809473,0.948099521319584,0.9918732030713011,-2.2932007180706945e-09]
+   🎯 Intercept: 11.01
+   💾 Model saved to /tmp/bitcoin_model
+
+📊 Processing Batch 3 with 62 records
+✅ Batch 3 - Model trained!
+   📈 RMSE: 2.79
+   📊 Coefficients: [-0.6129620187883951,0.8375208083648441,0.7761661068351915,1.8934597044811452e-08]
+   🎯 Intercept: -1.44
+   💾 Model saved to /tmp/bitcoin_model
+
+📊 Processing Batch 4 with 53 records
+✅ Batch 4 - Model trained!
+   📈 RMSE: 2.34
+   📊 Coefficients: [-0.8362390239779284,0.8827017116642915,0.961540660326265,4.7361693885199826e-09]
+   🎯 Intercept: -3.24
+   💾 Model saved to /tmp/bitcoin_model
+
+📊 Processing Batch 5 with 38 records
+✅ Batch 5 - Model trained!
+   📈 RMSE: 3.55
+   📊 Coefficients: [-0.6430982053622751,0.7248975134732941,0.9215022687006704,6.091467039044595e-08]
+   🎯 Intercept: -5.19
+   💾 Model saved to /tmp/bitcoin_model
+
+📊 Processing Batch 6 with 33 records
+✅ Batch 6 - Model trained!
+   📈 RMSE: 8.42
+   📊 Coefficients: [-0.5877873919683466,0.6976948854100266,0.7236554315231527,-1.8006990338601726e-08]
+   🎯 Intercept: 113.42
+   💾 Model saved to /tmp/bitcoin_model
+
+📊 Processing Batch 7 with 28 records
+✅ Batch 7 - Model trained!
+   📈 RMSE: 3.95
+   📊 Coefficients: [-0.5665786933060869,0.5853213166406498,0.9389013003012592,2.8360767714349597e-08]
+   🎯 Intercept: 24.35
+   💾 Model saved to /tmp/bitcoin_model
+
+📊 Processing Batch 8 with 28 records
+✅ Batch 8 - Model trained!
+   📈 RMSE: 1.79
+   📊 Coefficients: [-0.7960059801681837,0.863078660622615,0.9342186828240361,2.5589717406310722e-08]
+   🎯 Intercept: -2.18
+   💾 Model saved to /tmp/bitcoin_model
+
+📊 Processing Batch 9 with 31 records
+✅ Batch 9 - Model trained!
+   📈 RMSE: 0.43
+   📊 Coefficients: [-0.6981274926068043,1.02865244865469,0.6575872455522505,-1.0429528674840058e-08]
+   🎯 Intercept: 7.14
+   💾 Model saved to /tmp/bitcoin_model
+
+📊 Processing Batch 10 with 24 records
+✅ Batch 10 - Model trained!
+   📈 RMSE: 10.67
+   📊 Coefficients: [-0.3201774504066368,1.0484449645378464,0.2524381937172311,-1.1396626598323653e-07]
+   🎯 Intercept: 18.58
+   💾 Model saved to /tmp/bitcoin_model
+
+📊 Processing Batch 11 with 49 records
+✅ Batch 11 - Model trained!
+   📈 RMSE: 3.58
+   📊 Coefficients: [-0.40164611519413895,1.0380511160533468,0.380499801475396,-3.739684489284762e-08]
+   🎯 Intercept: -12.90
+   💾 Model saved to /tmp/bitcoin_model
+
+📊 Processing Batch 12 with 32 records
+✅ Batch 12 - Model trained!
+   📈 RMSE: 15.51
+   📊 Coefficients: [-0.584988786330436,0.5150583004203307,1.0007288582663638,2.0936301776859677e-07]
+   🎯 Intercept: 45.31
+   💾 Model saved to /tmp/bitcoin_model
+
+📊 Processing Batch 13 with 27 records
+✅ Batch 13 - Model trained!
+   📈 RMSE: 14.16
+   📊 Coefficients: [-0.7792353851496376,1.091655432823369,0.7022176105968022,-5.149344795579114e-08]
+   🎯 Intercept: -9.81
+   💾 Model saved to /tmp/bitcoin_model
+
+📊 Processing Batch 14 with 28 records
+✅ Batch 14 - Model trained!
+   📈 RMSE: 21.88
+   📊 Coefficients: [-0.6232078483963903,0.5994356927880745,0.9765621120850458,-3.928274866258704e-08]
+   🎯 Intercept: 78.23
+   💾 Model saved to /tmp/bitcoin_model
+
+📊 Processing Batch 15 with 26 records
+✅ Batch 15 - Model trained!
+   📈 RMSE: 7.42
+   📊 Coefficients: [-0.5619193512913301,0.7289836479994505,0.8236398157765349,2.1118730746470703e-08]
+   🎯 Intercept: 7.35
+   💾 Model saved to /tmp/bitcoin_model
+
+📊 Processing Batch 16 with 24 records
+✅ Batch 16 - Model trained!
+   📈 RMSE: 32.16
+   📊 Coefficients: [-0.6028663706733514,0.8755060950179081,0.7312867090831084,-4.3155700228067375e-09]
+   🎯 Intercept: -3.01
+   💾 Model saved to /tmp/bitcoin_model
+
+📊 Processing Batch 17 with 27 records
+✅ Batch 17 - Model trained!
+   📈 RMSE: 87.46
+   📊 Coefficients: [-0.10177091899322473,0.19748720069507963,0.8484548557393203,3.894421372800374e-08]
+   🎯 Intercept: 153.66
+   💾 Model saved to /tmp/bitcoin_model
+
+📊 Processing Batch 18 with 27 records
+✅ Batch 18 - Model trained!
+   📈 RMSE: 36.67
+   📊 Coefficients: [-0.23958879883147405,0.0925028194958186,0.9227686534783642,9.875998369694097e-08]
+   🎯 Intercept: 513.40
+   💾 Model saved to /tmp/bitcoin_model
+
+📊 Processing Batch 19 with 26 records
+✅ Batch 19 - Model trained!
+   📈 RMSE: 40.84
+   📊 Coefficients: [-0.5949969351926123,1.1654215793443397,0.4549576226401781,-1.076753567434325e-07]
+   🎯 Intercept: 4.09
+   💾 Model saved to /tmp/bitcoin_model
+
+📊 Processing Batch 20 with 37 records
+✅ Batch 20 - Model trained!
+   📈 RMSE: 92.05
+   📊 Coefficients: [-0.5631000400576595,0.9659682028728924,0.595832649838311,-2.1448736045323887e-08]
+   🎯 Intercept: 27.77
+   💾 Model saved to /tmp/bitcoin_model
+
+📊 Processing Batch 21 with 48 records
+✅ Batch 21 - Model trained!
+   📈 RMSE: 147.83
+   📊 Coefficients: [-0.4526560077729844,1.282543066284272,0.1767718147212736,-5.5669534799527116e-08]
+   🎯 Intercept: -54.70
+   💾 Model saved to /tmp/bitcoin_model
+
+📊 Processing Batch 22 with 53 records
+✅ Batch 22 - Model trained!
+   📈 RMSE: 355.15
+   📊 Coefficients: [-0.3989355154783222,1.1649607557889528,0.2485791683854635,-6.17866797765576e-08]
+   🎯 Intercept: -57.42
+   💾 Model saved to /tmp/bitcoin_model
+
+📊 Processing Batch 23 with 56 records
+✅ Batch 23 - Model trained!
+   📈 RMSE: 295.99
+   📊 Coefficients: [-0.49923325646144023,0.7494858344190333,0.6991256790721866,5.011767921416503e-08]
+   🎯 Intercept: 157.53
+   💾 Model saved to /tmp/bitcoin_model
+
+📊 Processing Batch 24 with 52 records
+✅ Batch 24 - Model trained!
+   📈 RMSE: 280.09
+   📊 Coefficients: [-0.7848245634180875,0.7952111147903472,0.8994754698012587,1.0608695043341859e-07]
+   🎯 Intercept: 184.09
+   💾 Model saved to /tmp/bitcoin_model
+
+📊 Processing Batch 25 with 46 records
+✅ Batch 25 - Model trained!
+   📈 RMSE: 110.34
+   📊 Coefficients: [-0.9298472343333375,1.0031361279389412,0.9017803671912781,9.659708101760344e-09]
+   🎯 Intercept: 151.30
+   💾 Model saved to /tmp/bitcoin_model
+
+📊 Processing Batch 26 with 47 records
+✅ Batch 26 - Model trained!
+   📈 RMSE: 56.65
+   📊 Coefficients: [-0.8000954551414338,0.8617888285552359,0.9056403127843267,2.4376352555704908e-08]
+   🎯 Intercept: 138.23
+   💾 Model saved to /tmp/bitcoin_model
+
+📊 Processing Batch 27 with 45 records
+✅ Batch 27 - Model trained!
+   📈 RMSE: 95.30
+   📊 Coefficients: [-0.7153637309089238,0.7992392029700554,0.9584995531127929,8.672394133834329e-09]
+   🎯 Intercept: -326.89
+   💾 Model saved to /tmp/bitcoin_model
+
+📊 Processing Batch 28 with 51 records
+✅ Batch 28 - Model trained!
+   📈 RMSE: 19.18
+   📊 Coefficients: [-0.4617898149771789,0.3526328091621161,1.127379780674591,2.7761116457533886e-08]
+   🎯 Intercept: -170.73
+   💾 Model saved to /tmp/bitcoin_model
+
+📊 Processing Batch 29 with 43 records
+✅ Batch 29 - Model trained!
+   📈 RMSE: 91.35
+   📊 Coefficients: [-0.49416727979804526,0.4592193417360379,1.0223555747650312,3.1930222731283665e-08]
+   🎯 Intercept: -31.81
+   💾 Model saved to /tmp/bitcoin_model
+
+📊 Processing Batch 30 with 45 records
+✅ Batch 30 - Model trained!
+   📈 RMSE: 25.16
+   📊 Coefficients: [-0.6930119437182892,0.7778162345532338,0.8663840510136437,1.2664753220678882e-09]
+   🎯 Intercept: 171.86
+   💾 Model saved to /tmp/bitcoin_model
+
+📊 Processing Batch 31 with 41 records26/01/03 15:02:52 WARN Instrumentation: [dcedf453] regParam is zero, which might cause numerical instability and overfitting.
+26/01/03 15:02:54 WARN Instrumentation: [15f6bf12] regParam is zero, which might cause numerical instability and overfitting.
+26/01/03 15:02:56 WARN Instrumentation: [c0aa74b7] regParam is zero, which might cause numerical instability and overfitting.
+26/01/03 15:02:59 WARN Instrumentation: [b38a1b65] regParam is zero, which might cause numerical instability and overfitting.
+26/01/03 15:03:01 WARN Instrumentation: [64ea63bf] regParam is zero, which might cause numerical instability and overfitting.
+26/01/03 15:03:04 WARN Instrumentation: [32405dd2] regParam is zero, which might cause numerical instability and overfitting.
+26/01/03 15:03:07 WARN Instrumentation: [1bebe722] regParam is zero, which might cause numerical instability and overfitting.
+26/01/03 15:03:09 WARN Instrumentation: [468efe41] regParam is zero, which might cause numerical instability and overfitting.
+26/01/03 15:03:11 WARN Instrumentation: [47cbe119] regParam is zero, which might cause numerical instability and overfitting.
+26/01/03 15:03:14 WARN Instrumentation: [0d189d55] regParam is zero, which might cause numerical instability and overfitting.
+26/01/03 15:03:16 WARN Instrumentation: [fefc4dc9] regParam is zero, which might cause numerical instability and overfitting.
+26/01/03 15:03:18 WARN Instrumentation: [da2387a7] regParam is zero, which might cause numerical instability and overfitting.
+26/01/03 15:03:20 WARN Instrumentation: [d2418243] regParam is zero, which might cause numerical instability and overfitting.
+26/01/03 15:03:22 WARN Instrumentation: [1dc2fb3f] regParam is zero, which might cause numerical instability and overfitting.
+26/01/03 15:03:25 WARN Instrumentation: [55b27df1] regParam is zero, which might cause numerical instability and overfitting.
+26/01/03 15:03:27 WARN Instrumentation: [f1ef09c6] regParam is zero, which might cause numerical instability and overfitting.
+26/01/03 15:03:29 WARN Instrumentation: [1f9cf2fc] regParam is zero, which might cause numerical instability and overfitting.
+26/01/03 15:03:31 WARN Instrumentation: [ac3a7be8] regParam is zero, which might cause numerical instability and overfitting.
+26/01/03 15:03:34 WARN Instrumentation: [0d0469db] regParam is zero, which might cause numerical instability and overfitting.
+26/01/03 15:03:36 WARN Instrumentation: [99df91e5] regParam is zero, which might cause numerical instability and overfitting.
+26/01/03 15:03:38 WARN Instrumentation: [fd064dcd] regParam is zero, which might cause numerical instability and overfitting.
+26/01/03 15:03:40 WARN Instrumentation: [3b008b06] regParam is zero, which might cause numerical instability and overfitting.
+26/01/03 15:03:43 WARN Instrumentation: [90b715c2] regParam is zero, which might cause numerical instability and overfitting.
+26/01/03 15:03:45 WARN Instrumentation: [4ad611e7] regParam is zero, which might cause numerical instability and overfitting.
+26/01/03 15:03:47 WARN Instrumentation: [9ec089e7] regParam is zero, which might cause numerical instability and overfitting.
+26/01/03 15:03:49 WARN Instrumentation: [236796fe] regParam is zero, which might cause numerical instability and overfitting.
+26/01/03 15:03:52 WARN Instrumentation: [4c47e720] regParam is zero, which might cause numerical instability and overfitting.
+26/01/03 15:03:54 WARN Instrumentation: [87b3e48f] regParam is zero, which might cause numerical instability and overfitting.
+26/01/03 15:03:56 WARN Instrumentation: [23383582] regParam is zero, which might cause numerical instability and overfitting.
+26/01/03 15:03:58 WARN Instrumentation: [b8f1ba22] regParam is zero, which might cause numerical instability and overfitting.
+26/01/03 15:04:00 WARN Instrumentation: [1d4700e4] regParam is zero, which might cause numerical instability and overfitting.
+
+✅ Batch 31 - Model trained!
+   📈 RMSE: 18.65
+   📊 Coefficients: [-0.7200469346151116,0.9103933646989039,0.8041474005716502,-7.701413536237055e-10]
+   🎯 Intercept: 22.11
+   💾 Model saved to /tmp/bitcoin_model
+
+📊 Processing Batch 32 with 40 records
+✅ Batch 32 - Model trained!
+   📈 RMSE: 31.84
+   📊 Coefficients: [-1.0130148058201682,0.8114912042832615,0.8981388692720136,8.362104511664344e-09]
+   🎯 Intercept: 1121.38
+   💾 Model saved to /tmp/bitcoin_model
+
+📊 Processing Batch 33 with 44 records
+✅ Batch 33 - Model trained!
+   📈 RMSE: 29.93
+   📊 Coefficients: [-0.59225117523832,0.8692851202038733,0.7619292878409757,-8.082096587058563e-09]
+   🎯 Intercept: -91.56
+   💾 Model saved to /tmp/bitcoin_model
+
+📊 Processing Batch 34 with 44 records
+✅ Batch 34 - Model trained!
+   📈 RMSE: 162.99
+   📊 Coefficients: [-0.618773420976062,0.7700586879791108,0.8486639774790046,-3.958061921309565e-10]
+   🎯 Intercept: 63.00
+   💾 Model saved to /tmp/bitcoin_model
+
+📊 Processing Batch 35 with 40 records
+✅ Batch 35 - Model trained!
+   📈 RMSE: 267.10
+   📊 Coefficients: [-0.6584896943714227,0.8393185241421439,0.7199053196331963,1.0414020864178785e-08]
+   🎯 Intercept: 860.57
+   💾 Model saved to /tmp/bitcoin_model
+
+📊 Processing Batch 36 with 54 records
+✅ Batch 36 - Model trained!
+   📈 RMSE: 58.26
+   📊 Coefficients: [-0.6507579457231284,0.6487399969910027,0.9727041134896873,1.224341602635912e-08]
+   🎯 Intercept: 187.86
+   💾 Model saved to /tmp/bitcoin_model
+
+📊 Processing Batch 37 with 57 records
+✅ Batch 37 - Model trained!
+   📈 RMSE: 105.87
+   📊 Coefficients: [-0.688937795830897,0.6528580315259526,0.9701846829644414,4.1710440671864915e-10]
+   🎯 Intercept: 568.70
+   💾 Model saved to /tmp/bitcoin_model
+
+📊 Processing Batch 38 with 44 records
+✅ Batch 38 - Model trained!
+   📈 RMSE: 112.65
+   📊 Coefficients: [-0.8124292483227965,1.1290028115060442,0.6612284543196515,-4.964540864031229e-09]
+   🎯 Intercept: 209.11
+   💾 Model saved to /tmp/bitcoin_model
+
+📊 Processing Batch 39 with 44 records
+✅ Batch 39 - Model trained!
+   📈 RMSE: 29.20
+   📊 Coefficients: [-0.827643688192238,0.8150817161559223,0.987208740679922,1.6897721502673974e-09]
+   🎯 Intercept: 224.28
+   💾 Model saved to /tmp/bitcoin_model
+
+📊 Processing Batch 40 with 47 records
+✅ Batch 40 - Model trained!
+   📈 RMSE: 97.77
+   📊 Coefficients: [-0.5299313535432068,0.453093451670955,1.0319278250739092,1.6023681478554414e-08]
+   🎯 Intercept: -200.84
+   💾 Model saved to /tmp/bitcoin_model
+
+📊 Processing Batch 41 with 47 records
+✅ Batch 41 - Model trained!
+   📈 RMSE: 105.16
+   📊 Coefficients: [-0.6073382959022281,0.8739541869567427,0.7241918767193286,-2.7425601465818165e-09]
+   🎯 Intercept: 160.17
+   💾 Model saved to /tmp/bitcoin_model
+
+📊 Processing Batch 42 with 39 records
+✅ Batch 42 - Model trained!
+   📈 RMSE: 74.30
+   📊 Coefficients: [-0.8687581235474751,0.8692919162318792,0.882377057701207,4.4078992880717386e-09]
+   🎯 Intercept: 1036.99
+   💾 Model saved to /tmp/bitcoin_model
+
+📊 Processing Batch 43 with 38 records
+✅ Batch 43 - Model trained!
+   📈 RMSE: 170.98
+   📊 Coefficients: [-0.4313828030856011,0.7662833242084156,0.6659976746339683,2.4839001827692684e-09]
+   🎯 Intercept: -36.66
+   💾 Model saved to /tmp/bitcoin_model
+
+📊 Processing Batch 44 with 40 records
+✅ Batch 44 - Model trained!
+   📈 RMSE: 57.01
+   📊 Coefficients: [-0.5297270047146923,0.5642201035476385,0.915540867383156,-1.931684215908166e-09]
+   🎯 Intercept: 686.29
+   💾 Model saved to /tmp/bitcoin_model
+
+📊 Processing Batch 45 with 42 records
+✅ Batch 45 - Model trained!
+   📈 RMSE: 53.06
+   📊 Coefficients: [-0.4411276158984169,0.7205715541078169,0.7371571727707571,1.285272057140916e-09]
+   🎯 Intercept: -193.05
+   💾 Model saved to /tmp/bitcoin_model
+
+📊 Processing Batch 46 with 43 records
+✅ Batch 46 - Model trained!
+   📈 RMSE: 135.39
+   📊 Coefficients: [-0.594805590716204,0.9843109322289447,0.5957095147233692,-6.215999387238299e-09]
+   🎯 Intercept: 411.90
+   💾 Model saved to /tmp/bitcoin_model
+
+📊 Processing Batch 47 with 41 records
+✅ Batch 47 - Model trained!
+   📈 RMSE: 380.35
+   📊 Coefficients: [-0.3774066207809365,1.0088736968143155,0.3393457569083221,-4.956926805311834e-09]
+   🎯 Intercept: 565.82
+   💾 Model saved to /tmp/bitcoin_model
+
+📊 Processing Batch 48 with 47 records
+✅ Batch 48 - Model trained!
+   📈 RMSE: 933.76
+   📊 Coefficients: [-0.44451488643003245,0.9599425428340496,0.4847218116514066,-6.630508722797894e-10]
+   🎯 Intercept: -364.48
+   💾 Model saved to /tmp/bitcoin_model
+
+📊 Processing Batch 49 with 42 records
+✅ Batch 49 - Model trained!
+   📈 RMSE: 846.28
+   📊 Coefficients: [-0.23478139531093317,0.582445621153302,0.600358556901056,-1.095909113554994e-09]
+   🎯 Intercept: 3011.18
+   💾 Model saved to /tmp/bitcoin_model
+
+📊 Processing Batch 50 with 40 records
+✅ Batch 50 - Model trained!
+   📈 RMSE: 890.51
+   📊 Coefficients: [-0.6235161404875841,0.7751772850421604,0.8246897537120771,2.462408976186125e-08]
+   🎯 Intercept: -93.73
+   ⚠️  Error saving model: [PATH_ALREADY_EXISTS] Path file:/tmp/bitcoin_model/data already exists. Set mode as "overwrite" to overwrite the existing path. SQLSTATE: 42K04
+
+📊 Processing Batch 51 with 38 records
+✅ Batch 51 - Model trained!
+   📈 RMSE: 537.87
+   📊 Coefficients: [-0.7814372681523416,0.6020713726573664,1.0245516755921489,4.50654384820621e-08]
+   🎯 Intercept: 4417.01
+   💾 Model saved to /tmp/bitcoin_model
+
+📊 Processing Batch 52 with 46 records
+✅ Batch 52 - Model trained!
+   📈 RMSE: 1377.26
+   📊 Coefficients: [-0.7330132160215734,1.2924466885365142,0.43639471595628987,-1.4104479737191368e-08]
+   🎯 Intercept: -65.25
+   💾 Model saved to /tmp/bitcoin_model
+
+📊 Processing Batch 53 with 52 records
+✅ Batch 53 - Model trained!
+   📈 RMSE: 636.81
+   📊 Coefficients: [-0.6284899003530516,1.0255554515813448,0.6142785172274929,6.106358129022338e-09]
+   🎯 Intercept: -1138.04
+   💾 Model saved to /tmp/bitcoin_model
+
+📊 Processing Batch 54 with 43 records
+✅ Batch 54 - Model trained!
+   📈 RMSE: 654.90
+   📊 Coefficients: [-0.6874278858921455,0.8460874746673654,0.8828602335474016,-4.583931785816633e-08]
+   🎯 Intercept: -849.51
+   💾 Model saved to /tmp/bitcoin_model
+
+📊 Processing Batch 55 with 41 records
+✅ Batch 55 - Model trained!
+   📈 RMSE: 570.11
+   📊 Coefficients: [-0.29072932345729735,0.8058643894287235,0.4471734803662404,-3.1515822800409006e-09]
+   🎯 Intercept: 1383.35
+   💾 Model saved to /tmp/bitcoin_model
+
+📊 Processing Batch 56 with 39 records
+✅ Batch 56 - Model trained!
+   📈 RMSE: 1027.26
+   📊 Coefficients: [-0.598342959922105,0.38967945962318934,1.1028181831350299,4.800165047208363e-08]
+   🎯 Intercept: 3969.31
+   💾 Model saved to /tmp/bitcoin_model
+
+📊 Processing Batch 57 with 45 records
+✅ Batch 57 - Model trained!
+   📈 RMSE: 405.88
+   📊 Coefficients: [-0.5788769955464752,0.7813847641103155,0.7553019775009676,3.829379237321331e-08]
+   🎯 Intercept: 719.10
+   💾 Model saved to /tmp/bitcoin_model
+
+📊 Processing Batch 58 with 40 records
+✅ Batch 58 - Model trained!
+   📈 RMSE: 268.68
+   📊 Coefficients: [-0.6575277147600439,0.7563259179081441,0.8803262695065023,-5.835305147924121e-09]
+   🎯 Intercept: 1006.13
+   💾 Model saved to /tmp/bitcoin_model
+
+📊 Processing Batch 59 with 36 records
+✅ Batch 59 - Model trained!
+   📈 RMSE: 875.61
+   📊 Coefficients: [-0.7804726122724589,1.0533090768456572,0.7441023898934059,3.450088423240037e-08]
+   🎯 Intercept: -1612.19
+   💾 Model saved to /tmp/bitcoin_model
+
+📊 Processing Batch 60 with 42 records
+✅ Batch 60 - Model trained!
+   📈 RMSE: 258.75
+   📊 Coefficients: [-0.5430446711963205,0.8697823439464197,0.5750493616181508,1.1260771300086196e-08]
+   🎯 Intercept: 1617.96
+   💾 Model saved to /tmp/bitcoin_model
+
+📊 Processing Batch 61 with 36 records
+✅ Batch 61 - Model trained!
+   📈 RMSE: 256.87
+   📊 Coefficients: [-0.4942866189719255,0.695144569541357,0.7772835180982718,-9.96448747366462e-09]26/01/03 15:04:02 WARN Instrumentation: [3a098e24] regParam is zero, which might cause numerical instability and overfitting.
+26/01/03 15:04:04 WARN Instrumentation: [e3125973] regParam is zero, which might cause numerical instability and overfitting.
+26/01/03 15:04:06 WARN Instrumentation: [3ed5f4e7] regParam is zero, which might cause numerical instability and overfitting.
+26/01/03 15:04:08 WARN Instrumentation: [524e1ed6] regParam is zero, which might cause numerical instability and overfitting.
+26/01/03 15:04:10 WARN Instrumentation: [d36d3ad6] regParam is zero, which might cause numerical instability and overfitting.
+26/01/03 15:04:11 ERROR Utils: Aborting task
+ExitCodeException exitCode=1: chmod: cannot access '/tmp/bitcoin_model/metadata/_temporary/0/_temporary/attempt_202601031504116754160984960412112_1128_m_000000_861/part-00000-393ee348-165c-478a-8f25-5060976744b9-c000.txt': No such file or directory
+
+	at org.apache.hadoop.util.Shell.runCommand(Shell.java:1068)
+	at org.apache.hadoop.util.Shell.run(Shell.java:959)
+	at org.apache.hadoop.util.Shell$ShellCommandExecutor.execute(Shell.java:1282)
+	at org.apache.hadoop.util.Shell.execCommand(Shell.java:1377)
+	at org.apache.hadoop.util.Shell.execCommand(Shell.java:1359)
+	at org.apache.hadoop.fs.RawLocalFileSystem.setPermission(RawLocalFileSystem.java:1179)
+	at org.apache.hadoop.fs.RawLocalFileSystem$LocalFSFileOutputStream.<init>(RawLocalFileSystem.java:517)
+	at org.apache.hadoop.fs.RawLocalFileSystem$LocalFSFileOutputStream.<init>(RawLocalFileSystem.java:477)
+	at org.apache.hadoop.fs.RawLocalFileSystem.createOutputStreamWithMode(RawLocalFileSystem.java:640)
+	at org.apache.hadoop.fs.RawLocalFileSystem.create(RawLocalFileSystem.java:629)
+	at org.apache.hadoop.fs.RawLocalFileSystem.create(RawLocalFileSystem.java:660)
+	at org.apache.hadoop.fs.ChecksumFileSystem$ChecksumFSOutputSummer.<init>(ChecksumFileSystem.java:692)
+	at org.apache.hadoop.fs.ChecksumFileSystem.create(ChecksumFileSystem.java:780)
+	at org.apache.hadoop.fs.ChecksumFileSystem.create(ChecksumFileSystem.java:759)
+	at org.apache.hadoop.fs.FileSystem.create(FileSystem.java:1233)
+	at org.apache.hadoop.fs.FileSystem.create(FileSystem.java:1210)
+	at org.apache.hadoop.fs.FileSystem.create(FileSystem.java:1091)
+	at org.apache.spark.sql.execution.datasources.CodecStreams$.createOutputStream(CodecStreams.scala:72)
+	at org.apache.spark.sql.execution.datasources.text.TextOutputWriter.<init>(TextOutputWriter.scala:33)
+	at org.apache.spark.sql.execution.datasources.text.TextFileFormat$$anon$1.newInstance(TextFileFormat.scala:90)
+	at org.apache.spark.sql.execution.datasources.SingleDirectoryDataWriter.newOutputWriter(FileFormatDataWriter.scala:180)
+	at org.apache.spark.sql.execution.datasources.SingleDirectoryDataWriter.<init>(FileFormatDataWriter.scala:165)
+	at org.apache.spark.sql.execution.datasources.FileFormatWriter$.$anonfun$executeTask$1(FileFormatWriter.scala:394)
+	at org.apache.spark.util.Utils$.tryWithSafeFinallyAndFailureCallbacks(Utils.scala:1337)
+	at org.apache.spark.sql.execution.datasources.FileFormatWriter$.executeTask(FileFormatWriter.scala:418)
+	at org.apache.spark.sql.execution.datasources.WriteFilesExec.$anonfun$doExecuteWrite$1(WriteFiles.scala:107)
+	at org.apache.spark.rdd.RDD.$anonfun$mapPartitionsInternal$2(RDD.scala:901)
+	at org.apache.spark.rdd.RDD.$anonfun$mapPartitionsInternal$2$adapted(RDD.scala:901)
+	at org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:52)
+	at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:374)
+	at org.apache.spark.rdd.RDD.iterator(RDD.scala:338)
+	at org.apache.spark.scheduler.ResultTask.runTask(ResultTask.scala:93)
+	at org.apache.spark.TaskContext.runTaskWithListeners(TaskContext.scala:180)
+	at org.apache.spark.scheduler.Task.run(Task.scala:147)
+	at org.apache.spark.executor.Executor$TaskRunner.$anonfun$run$5(Executor.scala:679)
+	at org.apache.spark.util.SparkErrorUtils.tryWithSafeFinally(SparkErrorUtils.scala:86)
+	at org.apache.spark.util.SparkErrorUtils.tryWithSafeFinally$(SparkErrorUtils.scala:83)
+	at org.apache.spark.util.Utils$.tryWithSafeFinally(Utils.scala:97)
+	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:682)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+26/01/03 15:04:11 WARN FileOutputCommitter: Could not delete file:/tmp/bitcoin_model/metadata/_temporary/0/_temporary/attempt_202601031504116754160984960412112_1128_m_000000_861
+26/01/03 15:04:11 ERROR FileFormatWriter: Job: job_202601031504116754160984960412112_1128, Task: task_202601031504116754160984960412112_1128_m_000000, Task attempt attempt_202601031504116754160984960412112_1128_m_000000_861 aborted.
+26/01/03 15:04:11 ERROR Executor: Exception in task 0.0 in stage 1128.0 (TID 861)
+ExitCodeException exitCode=1: chmod: cannot access '/tmp/bitcoin_model/metadata/_temporary/0/_temporary/attempt_202601031504116754160984960412112_1128_m_000000_861/part-00000-393ee348-165c-478a-8f25-5060976744b9-c000.txt': No such file or directory
+
+	at org.apache.hadoop.util.Shell.runCommand(Shell.java:1068)
+	at org.apache.hadoop.util.Shell.run(Shell.java:959)
+	at org.apache.hadoop.util.Shell$ShellCommandExecutor.execute(Shell.java:1282)
+	at org.apache.hadoop.util.Shell.execCommand(Shell.java:1377)
+	at org.apache.hadoop.util.Shell.execCommand(Shell.java:1359)
+	at org.apache.hadoop.fs.RawLocalFileSystem.setPermission(RawLocalFileSystem.java:1179)
+	at org.apache.hadoop.fs.RawLocalFileSystem$LocalFSFileOutputStream.<init>(RawLocalFileSystem.java:517)
+	at org.apache.hadoop.fs.RawLocalFileSystem$LocalFSFileOutputStream.<init>(RawLocalFileSystem.java:477)
+	at org.apache.hadoop.fs.RawLocalFileSystem.createOutputStreamWithMode(RawLocalFileSystem.java:640)
+	at org.apache.hadoop.fs.RawLocalFileSystem.create(RawLocalFileSystem.java:629)
+	at org.apache.hadoop.fs.RawLocalFileSystem.create(RawLocalFileSystem.java:660)
+	at org.apache.hadoop.fs.ChecksumFileSystem$ChecksumFSOutputSummer.<init>(ChecksumFileSystem.java:692)
+	at org.apache.hadoop.fs.ChecksumFileSystem.create(ChecksumFileSystem.java:780)
+	at org.apache.hadoop.fs.ChecksumFileSystem.create(ChecksumFileSystem.java:759)
+	at org.apache.hadoop.fs.FileSystem.create(FileSystem.java:1233)
+	at org.apache.hadoop.fs.FileSystem.create(FileSystem.java:1210)
+	at org.apache.hadoop.fs.FileSystem.create(FileSystem.java:1091)
+	at org.apache.spark.sql.execution.datasources.CodecStreams$.createOutputStream(CodecStreams.scala:72)
+	at org.apache.spark.sql.execution.datasources.text.TextOutputWriter.<init>(TextOutputWriter.scala:33)
+	at org.apache.spark.sql.execution.datasources.text.TextFileFormat$$anon$1.newInstance(TextFileFormat.scala:90)
+	at org.apache.spark.sql.execution.datasources.SingleDirectoryDataWriter.newOutputWriter(FileFormatDataWriter.scala:180)
+	at org.apache.spark.sql.execution.datasources.SingleDirectoryDataWriter.<init>(FileFormatDataWriter.scala:165)
+	at org.apache.spark.sql.execution.datasources.FileFormatWriter$.$anonfun$executeTask$1(FileFormatWriter.scala:394)
+	at org.apache.spark.util.Utils$.tryWithSafeFinallyAndFailureCallbacks(Utils.scala:1337)
+	at org.apache.spark.sql.execution.datasources.FileFormatWriter$.executeTask(FileFormatWriter.scala:418)
+	at org.apache.spark.sql.execution.datasources.WriteFilesExec.$anonfun$doExecuteWrite$1(WriteFiles.scala:107)
+	at org.apache.spark.rdd.RDD.$anonfun$mapPartitionsInternal$2(RDD.scala:901)
+	at org.apache.spark.rdd.RDD.$anonfun$mapPartitionsInternal$2$adapted(RDD.scala:901)
+	at org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:52)
+	at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:374)
+	at org.apache.spark.rdd.RDD.iterator(RDD.scala:338)
+	at org.apache.spark.scheduler.ResultTask.runTask(ResultTask.scala:93)
+	at org.apache.spark.TaskContext.runTaskWithListeners(TaskContext.scala:180)
+	at org.apache.spark.scheduler.Task.run(Task.scala:147)
+	at org.apache.spark.executor.Executor$TaskRunner.$anonfun$run$5(Executor.scala:679)
+	at org.apache.spark.util.SparkErrorUtils.tryWithSafeFinally(SparkErrorUtils.scala:86)
+	at org.apache.spark.util.SparkErrorUtils.tryWithSafeFinally$(SparkErrorUtils.scala:83)
+	at org.apache.spark.util.Utils$.tryWithSafeFinally(Utils.scala:97)
+	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:682)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+26/01/03 15:04:11 WARN TaskSetManager: Lost task 0.0 in stage 1128.0 (TID 861) (myvm.internal.cloudapp.net executor driver): ExitCodeException exitCode=1: chmod: cannot access '/tmp/bitcoin_model/metadata/_temporary/0/_temporary/attempt_202601031504116754160984960412112_1128_m_000000_861/part-00000-393ee348-165c-478a-8f25-5060976744b9-c000.txt': No such file or directory
+
+	at org.apache.hadoop.util.Shell.runCommand(Shell.java:1068)
+	at org.apache.hadoop.util.Shell.run(Shell.java:959)
+	at org.apache.hadoop.util.Shell$ShellCommandExecutor.execute(Shell.java:1282)
+	at org.apache.hadoop.util.Shell.execCommand(Shell.java:1377)
+	at org.apache.hadoop.util.Shell.execCommand(Shell.java:1359)
+	at org.apache.hadoop.fs.RawLocalFileSystem.setPermission(RawLocalFileSystem.java:1179)
+	at org.apache.hadoop.fs.RawLocalFileSystem$LocalFSFileOutputStream.<init>(RawLocalFileSystem.java:517)
+	at org.apache.hadoop.fs.RawLocalFileSystem$LocalFSFileOutputStream.<init>(RawLocalFileSystem.java:477)
+	at org.apache.hadoop.fs.RawLocalFileSystem.createOutputStreamWithMode(RawLocalFileSystem.java:640)
+	at org.apache.hadoop.fs.RawLocalFileSystem.create(RawLocalFileSystem.java:629)
+	at org.apache.hadoop.fs.RawLocalFileSystem.create(RawLocalFileSystem.java:660)
+	at org.apache.hadoop.fs.ChecksumFileSystem$ChecksumFSOutputSummer.<init>(ChecksumFileSystem.java:692)
+	at org.apache.hadoop.fs.ChecksumFileSystem.create(ChecksumFileSystem.java:780)
+	at org.apache.hadoop.fs.ChecksumFileSystem.create(ChecksumFileSystem.java:759)
+	at org.apache.hadoop.fs.FileSystem.create(FileSystem.java:1233)
+	at org.apache.hadoop.fs.FileSystem.create(FileSystem.java:1210)
+	at org.apache.hadoop.fs.FileSystem.create(FileSystem.java:1091)
+	at org.apache.spark.sql.execution.datasources.CodecStreams$.createOutputStream(CodecStreams.scala:72)
+	at org.apache.spark.sql.execution.datasources.text.TextOutputWriter.<init>(TextOutputWriter.scala:33)
+	at org.apache.spark.sql.execution.datasources.text.TextFileFormat$$anon$1.newInstance(TextFileFormat.scala:90)
+	at org.apache.spark.sql.execution.datasources.SingleDirectoryDataWriter.newOutputWriter(FileFormatDataWriter.scala:180)
+	at org.apache.spark.sql.execution.datasources.SingleDirectoryDataWriter.<init>(FileFormatDataWriter.scala:165)
+	at org.apache.spark.sql.execution.datasources.FileFormatWriter$.$anonfun$executeTask$1(FileFormatWriter.scala:394)
+	at org.apache.spark.util.Utils$.tryWithSafeFinallyAndFailureCallbacks(Utils.scala:1337)
+	at org.apache.spark.sql.execution.datasources.FileFormatWriter$.executeTask(FileFormatWriter.scala:418)
+	at org.apache.spark.sql.execution.datasources.WriteFilesExec.$anonfun$doExecuteWrite$1(WriteFiles.scala:107)
+	at org.apache.spark.rdd.RDD.$anonfun$mapPartitionsInternal$2(RDD.scala:901)
+	at org.apache.spark.rdd.RDD.$anonfun$mapPartitionsInternal$2$adapted(RDD.scala:901)
+	at org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:52)
+	at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:374)
+	at org.apache.spark.rdd.RDD.iterator(RDD.scala:338)
+	at org.apache.spark.scheduler.ResultTask.runTask(ResultTask.scala:93)
+	at org.apache.spark.TaskContext.runTaskWithListeners(TaskContext.scala:180)
+	at org.apache.spark.scheduler.Task.run(Task.scala:147)
+	at org.apache.spark.executor.Executor$TaskRunner.$anonfun$run$5(Executor.scala:679)
+	at org.apache.spark.util.SparkErrorUtils.tryWithSafeFinally(SparkErrorUtils.scala:86)
+	at org.apache.spark.util.SparkErrorUtils.tryWithSafeFinally$(SparkErrorUtils.scala:83)
+	at org.apache.spark.util.Utils$.tryWithSafeFinally(Utils.scala:97)
+	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:682)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+26/01/03 15:04:11 ERROR TaskSetManager: Task 0 in stage 1128.0 failed 1 times; aborting job
+26/01/03 15:04:11 ERROR FileFormatWriter: Aborting job 7dcd776c-1f70-43d4-8ca5-ac6609ec295a.
+org.apache.spark.SparkException: Job aborted due to stage failure: Task 0 in stage 1128.0 failed 1 times, most recent failure: Lost task 0.0 in stage 1128.0 (TID 861) (myvm.internal.cloudapp.net executor driver): ExitCodeException exitCode=1: chmod: cannot access '/tmp/bitcoin_model/metadata/_temporary/0/_temporary/attempt_202601031504116754160984960412112_1128_m_000000_861/part-00000-393ee348-165c-478a-8f25-5060976744b9-c000.txt': No such file or directory
+
+	at org.apache.hadoop.util.Shell.runCommand(Shell.java:1068)
+	at org.apache.hadoop.util.Shell.run(Shell.java:959)
+	at org.apache.hadoop.util.Shell$ShellCommandExecutor.execute(Shell.java:1282)
+	at org.apache.hadoop.util.Shell.execCommand(Shell.java:1377)
+	at org.apache.hadoop.util.Shell.execCommand(Shell.java:1359)
+	at org.apache.hadoop.fs.RawLocalFileSystem.setPermission(RawLocalFileSystem.java:1179)
+	at org.apache.hadoop.fs.RawLocalFileSystem$LocalFSFileOutputStream.<init>(RawLocalFileSystem.java:517)
+	at org.apache.hadoop.fs.RawLocalFileSystem$LocalFSFileOutputStream.<init>(RawLocalFileSystem.java:477)
+	at org.apache.hadoop.fs.RawLocalFileSystem.createOutputStreamWithMode(RawLocalFileSystem.java:640)
+	at org.apache.hadoop.fs.RawLocalFileSystem.create(RawLocalFileSystem.java:629)
+	at org.apache.hadoop.fs.RawLocalFileSystem.create(RawLocalFileSystem.java:660)
+	at org.apache.hadoop.fs.ChecksumFileSystem$ChecksumFSOutputSummer.<init>(ChecksumFileSystem.java:692)
+	at org.apache.hadoop.fs.ChecksumFileSystem.create(ChecksumFileSystem.java:780)
+	at org.apache.hadoop.fs.ChecksumFileSystem.create(ChecksumFileSystem.java:759)
+	at org.apache.hadoop.fs.FileSystem.create(FileSystem.java:1233)
+	at org.apache.hadoop.fs.FileSystem.create(FileSystem.java:1210)
+	at org.apache.hadoop.fs.FileSystem.create(FileSystem.java:1091)
+	at org.apache.spark.sql.execution.datasources.CodecStreams$.createOutputStream(CodecStreams.scala:72)
+	at org.apache.spark.sql.execution.datasources.text.TextOutputWriter.<init>(TextOutputWriter.scala:33)
+	at org.apache.spark.sql.execution.datasources.text.TextFileFormat$$anon$1.newInstance(TextFileFormat.scala:90)
+	at org.apache.spark.sql.execution.datasources.SingleDirectoryDataWriter.newOutputWriter(FileFormatDataWriter.scala:180)
+	at org.apache.spark.sql.execution.datasources.SingleDirectoryDataWriter.<init>(FileFormatDataWriter.scala:165)
+	at org.apache.spark.sql.execution.datasources.FileFormatWriter$.$anonfun$executeTask$1(FileFormatWriter.scala:394)
+	at org.apache.spark.util.Utils$.tryWithSafeFinallyAndFailureCallbacks(Utils.scala:1337)
+	at org.apache.spark.sql.execution.datasources.FileFormatWriter$.executeTask(FileFormatWriter.scala:418)
+	at org.apache.spark.sql.execution.datasources.WriteFilesExec.$anonfun$doExecuteWrite$1(WriteFiles.scala:107)
+	at org.apache.spark.rdd.RDD.$anonfun$mapPartitionsInternal$2(RDD.scala:901)
+	at org.apache.spark.rdd.RDD.$anonfun$mapPartitionsInternal$2$adapted(RDD.scala:901)
+	at org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:52)
+	at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:374)
+	at org.apache.spark.rdd.RDD.iterator(RDD.scala:338)
+	at org.apache.spark.scheduler.ResultTask.runTask(ResultTask.scala:93)
+	at org.apache.spark.TaskContext.runTaskWithListeners(TaskContext.scala:180)
+	at org.apache.spark.scheduler.Task.run(Task.scala:147)
+	at org.apache.spark.executor.Executor$TaskRunner.$anonfun$run$5(Executor.scala:679)
+	at org.apache.spark.util.SparkErrorUtils.tryWithSafeFinally(SparkErrorUtils.scala:86)
+	at org.apache.spark.util.SparkErrorUtils.tryWithSafeFinally$(SparkErrorUtils.scala:83)
+	at org.apache.spark.util.Utils$.tryWithSafeFinally(Utils.scala:97)
+	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:682)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+Driver stacktrace:
+	at org.apache.spark.scheduler.DAGScheduler.$anonfun$abortStage$3(DAGScheduler.scala:3003)
+	at scala.Option.getOrElse(Option.scala:201)
+	at org.apache.spark.scheduler.DAGScheduler.$anonfun$abortStage$2(DAGScheduler.scala:3003)
+	at org.apache.spark.scheduler.DAGScheduler.$anonfun$abortStage$2$adapted(DAGScheduler.scala:2995)
+	at scala.collection.immutable.List.foreach(List.scala:323)
+	at org.apache.spark.scheduler.DAGScheduler.abortStage(DAGScheduler.scala:2995)
+	at org.apache.spark.scheduler.DAGScheduler.$anonfun$handleTaskSetFailed$1(DAGScheduler.scala:1303)
+	at org.apache.spark.scheduler.DAGScheduler.$anonfun$handleTaskSetFailed$1$adapted(DAGScheduler.scala:1303)
+	at scala.Option.foreach(Option.scala:437)
+	at org.apache.spark.scheduler.DAGScheduler.handleTaskSetFailed(DAGScheduler.scala:1303)
+	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.doOnReceive(DAGScheduler.scala:3278)
+	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.onReceive(DAGScheduler.scala:3209)
+	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.onReceive(DAGScheduler.scala:3198)
+	at org.apache.spark.util.EventLoop$$anon$1.run(EventLoop.scala:50)
+	at org.apache.spark.scheduler.DAGScheduler.runJob(DAGScheduler.scala:1017)
+	at org.apache.spark.SparkContext.runJob(SparkContext.scala:2496)
+	at org.apache.spark.sql.execution.datasources.FileFormatWriter$.$anonfun$executeWrite$4(FileFormatWriter.scala:309)
+	at org.apache.spark.sql.execution.datasources.FileFormatWriter$.writeAndCommit(FileFormatWriter.scala:270)
+	at org.apache.spark.sql.execution.datasources.FileFormatWriter$.executeWrite(FileFormatWriter.scala:306)
+	at org.apache.spark.sql.execution.datasources.FileFormatWriter$.write(FileFormatWriter.scala:189)
+	at org.apache.spark.sql.execution.datasources.InsertIntoHadoopFsRelationCommand.run(InsertIntoHadoopFsRelationCommand.scala:195)
+	at org.apache.spark.sql.execution.command.DataWritingCommandExec.sideEffectResult$lzycompute(commands.scala:117)
+	at org.apache.spark.sql.execution.command.DataWritingCommandExec.sideEffectResult(commands.scala:115)
+	at org.apache.spark.sql.execution.command.DataWritingCommandExec.executeCollect(commands.scala:129)
+	at org.apache.spark.sql.execution.QueryExecution.$anonfun$eagerlyExecuteCommands$2(QueryExecution.scala:185)
+	at org.apache.spark.sql.execution.SQLExecution$.$anonfun$withNewExecutionId0$8(SQLExecution.scala:176)
+	at org.apache.spark.sql.execution.SQLExecution$.withSessionTagsApplied(SQLExecution.scala:284)
+	at org.apache.spark.sql.execution.SQLExecution$.$anonfun$withNewExecutionId0$7(SQLExecution.scala:138)
+	at org.apache.spark.JobArtifactSet$.withActiveJobArtifactState(JobArtifactSet.scala:94)
+	at org.apache.spark.sql.artifact.ArtifactManager.$anonfun$withResources$1(ArtifactManager.scala:112)
+	at org.apache.spark.sql.artifact.ArtifactManager.withClassLoaderIfNeeded(ArtifactManager.scala:106)
+	at org.apache.spark.sql.artifact.ArtifactManager.withResources(ArtifactManager.scala:111)
+	at org.apache.spark.sql.execution.SQLExecution$.$anonfun$withNewExecutionId0$6(SQLExecution.scala:138)
+	at org.apache.spark.sql.execution.SQLExecution$.withSQLConfPropagated(SQLExecution.scala:307)
+	at org.apache.spark.sql.execution.SQLExecution$.$anonfun$withNewExecutionId0$1(SQLExecution.scala:137)
+	at org.apache.spark.sql.SparkSession.withActive(SparkSession.scala:804)
+	at org.apache.spark.sql.execution.SQLExecution$.withNewExecutionId0(SQLExecution.scala:91)
+	at org.apache.spark.sql.execution.SQLExecution$.withNewExecutionId(SQLExecution.scala:249)
+	at org.apache.spark.sql.execution.QueryExecution.$anonfun$eagerlyExecuteCommands$1(QueryExecution.scala:185)
+	at org.apache.spark.sql.execution.QueryExecution$.withInternalError(QueryExecution.scala:717)
+	at org.apache.spark.sql.execution.QueryExecution.org$apache$spark$sql$execution$QueryExecution$$eagerlyExecute$1(QueryExecution.scala:184)
+	at org.apache.spark.sql.execution.QueryExecution$$anonfun$eagerlyExecuteCommands$3.applyOrElse(QueryExecution.scala:201)
+	at org.apache.spark.sql.execution.QueryExecution$$anonfun$eagerlyExecuteCommands$3.applyOrElse(QueryExecution.scala:194)
+	at org.apache.spark.sql.catalyst.trees.TreeNode.$anonfun$transformDownWithPruning$1(TreeNode.scala:491)
+	at org.apache.spark.sql.catalyst.trees.CurrentOrigin$.withOrigin(origin.scala:107)
+	at org.apache.spark.sql.catalyst.trees.TreeNode.transformDownWithPruning(TreeNode.scala:491)
+	at org.apache.spark.sql.catalyst.plans.logical.LogicalPlan.org$apache$spark$sql$catalyst$plans$logical$AnalysisHelper$$super$transformDownWithPruning(LogicalPlan.scala:37)
+	at org.apache.spark.sql.catalyst.plans.logical.AnalysisHelper.transformDownWithPruning(AnalysisHelper.scala:360)
+	at org.apache.spark.sql.catalyst.plans.logical.AnalysisHelper.transformDownWithPruning$(AnalysisHelper.scala:356)
+	at org.apache.spark.sql.catalyst.plans.logical.LogicalPlan.transformDownWithPruning(LogicalPlan.scala:37)
+	at org.apache.spark.sql.catalyst.plans.logical.LogicalPlan.transformDownWithPruning(LogicalPlan.scala:37)
+	at org.apache.spark.sql.catalyst.trees.TreeNode.transformDown(TreeNode.scala:467)
+	at org.apache.spark.sql.execution.QueryExecution.eagerlyExecuteCommands(QueryExecution.scala:194)
+	at org.apache.spark.sql.execution.QueryExecution.$anonfun$lazyCommandExecuted$1(QueryExecution.scala:155)
+	at scala.util.Try$.apply(Try.scala:217)
+	at org.apache.spark.util.Utils$.doTryWithCallerStacktrace(Utils.scala:1392)
+	at org.apache.spark.util.LazyTry.tryT$lzycompute(LazyTry.scala:46)
+	at org.apache.spark.util.LazyTry.tryT(LazyTry.scala:46)
+	at org.apache.spark.util.LazyTry.get(LazyTry.scala:58)
+	at org.apache.spark.sql.execution.QueryExecution.commandExecuted(QueryExecution.scala:160)
+	at org.apache.spark.sql.execution.QueryExecution.assertCommandExecuted(QueryExecution.scala:239)
+	at org.apache.spark.sql.classic.DataFrameWriter.runCommand(DataFrameWriter.scala:592)
+	at org.apache.spark.sql.classic.DataFrameWriter.save(DataFrameWriter.scala:115)
+	at org.apache.spark.sql.DataFrameWriter.text(DataFrameWriter.scala:409)
+	at org.apache.spark.ml.util.ReadWriteUtils$.saveText(ReadWrite.scala:1050)
+	at org.apache.spark.ml.util.DefaultParamsWriter$.saveMetadata(ReadWrite.scala:477)
+	at org.apache.spark.ml.util.DefaultParamsWriter$.saveMetadata(ReadWrite.scala:488)
+	at org.apache.spark.ml.regression.InternalLinearRegressionModelWriter.write(LinearRegression.scala:865)
+	at org.apache.spark.ml.util.GeneralMLWriter.saveImpl(ReadWrite.scala:281)
+	at org.apache.spark.ml.util.MLWriter.save(ReadWrite.scala:176)
+	at jdk.internal.reflect.GeneratedMethodAccessor184.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:244)
+	at py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:374)
+	at py4j.Gateway.invoke(Gateway.java:282)
+	at py4j.commands.AbstractCommand.invokeMethod(AbstractCommand.java:132)
+	at py4j.commands.CallCommand.execute(CallCommand.java:79)
+	at py4j.ClientServerConnection.sendCommand(ClientServerConnection.java:246)
+	at py4j.CallbackClient.sendCommand(CallbackClient.java:384)
+	at py4j.CallbackClient.sendCommand(CallbackClient.java:356)
+	at py4j.reflection.PythonProxyHandler.invoke(PythonProxyHandler.java:106)
+	at jdk.proxy3/jdk.proxy3.$Proxy58.call(Unknown Source)
+	at org.apache.spark.sql.execution.streaming.sources.PythonForeachBatchHelper$.$anonfun$callForeachBatch$1(ForeachBatchSink.scala:87)
+	at org.apache.spark.sql.execution.streaming.sources.PythonForeachBatchHelper$.$anonfun$callForeachBatch$1$adapted(ForeachBatchSink.scala:87)
+	at org.apache.spark.sql.execution.streaming.sources.ForeachBatchSink.callBatchWriter(ForeachBatchSink.scala:56)
+	at org.apache.spark.sql.execution.streaming.sources.ForeachBatchSink.addBatch(ForeachBatchSink.scala:49)
+	at org.apache.spark.sql.execution.streaming.runtime.MicroBatchExecution.$anonfun$runBatch$19(MicroBatchExecution.scala:1074)
+	at org.apache.spark.sql.execution.SQLExecution$.$anonfun$withNewExecutionId0$8(SQLExecution.scala:176)
+	at org.apache.spark.sql.execution.SQLExecution$.withSessionTagsApplied(SQLExecution.scala:284)
+	at org.apache.spark.sql.execution.SQLExecution$.$anonfun$withNewExecutionId0$7(SQLExecution.scala:138)
+	at org.apache.spark.JobArtifactSet$.withActiveJobArtifactState(JobArtifactSet.scala:94)
+	at org.apache.spark.sql.artifact.ArtifactManager.$anonfun$withResources$1(ArtifactManager.scala:112)
+	at org.apache.spark.sql.artifact.ArtifactManager.withClassLoaderIfNeeded(ArtifactManager.scala:106)
+	at org.apache.spark.sql.artifact.ArtifactManager.withResources(ArtifactManager.scala:111)
+	at org.apache.spark.sql.execution.SQLExecution$.$anonfun$withNewExecutionId0$6(SQLExecution.scala:138)
+	at org.apache.spark.sql.execution.SQLExecution$.withSQLConfPropagated(SQLExecution.scala:307)
+	at org.apache.spark.sql.execution.SQLExecution$.$anonfun$withNewExecutionId0$1(SQLExecution.scala:137)
+	at org.apache.spark.sql.SparkSession.withActive(SparkSession.scala:804)
+	at org.apache.spark.sql.execution.SQLExecution$.withNewExecutionId0(SQLExecution.scala:91)
+	at org.apache.spark.sql.execution.SQLExecution$.withNewExecutionId(SQLExecution.scala:249)
+	at org.apache.spark.sql.execution.streaming.runtime.MicroBatchExecution.$anonfun$runBatch$18(MicroBatchExecution.scala:1065)
+	at org.apache.spark.sql.execution.streaming.runtime.ProgressContext.reportTimeTaken(ProgressReporter.scala:200)
+	at org.apache.spark.sql.execution.streaming.runtime.MicroBatchExecution.runBatch(MicroBatchExecution.scala:1065)
+	at org.apache.spark.sql.execution.streaming.runtime.MicroBatchExecution.$anonfun$executeOneBatch$2(MicroBatchExecution.scala:516)
+	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.scala:18)
+	at org.apache.spark.sql.execution.streaming.runtime.ProgressContext.reportTimeTaken(ProgressReporter.scala:200)
+	at org.apache.spark.sql.execution.streaming.runtime.MicroBatchExecution.executeOneBatch(MicroBatchExecution.scala:481)
+	at org.apache.spark.sql.execution.streaming.runtime.MicroBatchExecution.$anonfun$runActivatedStream$1(MicroBatchExecution.scala:461)
+	at org.apache.spark.sql.execution.streaming.runtime.MicroBatchExecution.$anonfun$runActivatedStream$1$adapted(MicroBatchExecution.scala:461)
+	at org.apache.spark.sql.execution.streaming.runtime.TriggerExecutor.runOneBatch(TriggerExecutor.scala:40)
+	at org.apache.spark.sql.execution.streaming.runtime.TriggerExecutor.runOneBatch$(TriggerExecutor.scala:38)
+	at org.apache.spark.sql.execution.streaming.runtime.ProcessingTimeExecutor.runOneBatch(TriggerExecutor.scala:71)
+	at org.apache.spark.sql.execution.streaming.runtime.ProcessingTimeExecutor.execute(TriggerExecutor.scala:83)
+	at org.apache.spark.sql.execution.streaming.runtime.MicroBatchExecution.runActivatedStream(MicroBatchExecution.scala:461)
+	at org.apache.spark.sql.execution.streaming.runtime.StreamExecution.$anonfun$runStream$1(StreamExecution.scala:347)
+	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.scala:18)
+	at org.apache.spark.sql.SparkSession.withActive(SparkSession.scala:804)
+	at org.apache.spark.sql.execution.streaming.runtime.StreamExecution.org$apache$spark$sql$execution$streaming$runtime$StreamExecution$$runStream(StreamExecution.scala:307)
+	at org.apache.spark.sql.execution.streaming.runtime.StreamExecution$$anon$1.run(StreamExecution.scala:230)
+Caused by: ExitCodeException exitCode=1: chmod: cannot access '/tmp/bitcoin_model/metadata/_temporary/0/_temporary/attempt_202601031504116754160984960412112_1128_m_000000_861/part-00000-393ee348-165c-478a-8f25-5060976744b9-c000.txt': No such file or directory
+
+	at org.apache.hadoop.util.Shell.runCommand(Shell.java:1068)
+	at org.apache.hadoop.util.Shell.run(Shell.java:959)
+	at org.apache.hadoop.util.Shell$ShellCommandExecutor.execute(Shell.java:1282)
+	at org.apache.hadoop.util.Shell.execCommand(Shell.java:1377)
+	at org.apache.hadoop.util.Shell.execCommand(Shell.java:1359)
+	at org.apache.hadoop.fs.RawLocalFileSystem.setPermission(RawLocalFileSystem.java:1179)
+	at org.apache.hadoop.fs.RawLocalFileSystem$LocalFSFileOutputStream.<init>(RawLocalFileSystem.java:517)
+	at org.apache.hadoop.fs.RawLocalFileSystem$LocalFSFileOutputStream.<init>(RawLocalFileSystem.java:477)
+	at org.apache.hadoop.fs.RawLocalFileSystem.createOutputStreamWithMode(RawLocalFileSystem.java:640)
+	at org.apache.hadoop.fs.RawLocalFileSystem.create(RawLocalFileSystem.java:629)
+	at org.apache.hadoop.fs.RawLocalFileSystem.create(RawLocalFileSystem.java:660)
+	at org.apache.hadoop.fs.ChecksumFileSystem$ChecksumFSOutputSummer.<init>(ChecksumFileSystem.java:692)
+	at org.apache.hadoop.fs.ChecksumFileSystem.create(ChecksumFileSystem.java:780)
+	at org.apache.hadoop.fs.ChecksumFileSystem.create(ChecksumFileSystem.java:759)
+	at org.apache.hadoop.fs.FileSystem.create(FileSystem.java:1233)
+	at org.apache.hadoop.fs.FileSystem.create(FileSystem.java:1210)
+	at org.apache.hadoop.fs.FileSystem.create(FileSystem.java:1091)
+	at org.apache.spark.sql.execution.datasources.CodecStreams$.createOutputStream(CodecStreams.scala:72)
+	at org.apache.spark.sql.execution.datasources.text.TextOutputWriter.<init>(TextOutputWriter.scala:33)
+	at org.apache.spark.sql.execution.datasources.text.TextFileFormat$$anon$1.newInstance(TextFileFormat.scala:90)
+	at org.apache.spark.sql.execution.datasources.SingleDirectoryDataWriter.newOutputWriter(FileFormatDataWriter.scala:180)
+	at org.apache.spark.sql.execution.datasources.SingleDirectoryDataWriter.<init>(FileFormatDataWriter.scala:165)
+	at org.apache.spark.sql.execution.datasources.FileFormatWriter$.$anonfun$executeTask$1(FileFormatWriter.scala:394)
+	at org.apache.spark.util.Utils$.tryWithSafeFinallyAndFailureCallbacks(Utils.scala:1337)
+	at org.apache.spark.sql.execution.datasources.FileFormatWriter$.executeTask(FileFormatWriter.scala:418)
+	at org.apache.spark.sql.execution.datasources.WriteFilesExec.$anonfun$doExecuteWrite$1(WriteFiles.scala:107)
+	at org.apache.spark.rdd.RDD.$anonfun$mapPartitionsInternal$2(RDD.scala:901)
+	at org.apache.spark.rdd.RDD.$anonfun$mapPartitionsInternal$2$adapted(RDD.scala:901)
+	at org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:52)
+	at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:374)
+	at org.apache.spark.rdd.RDD.iterator(RDD.scala:338)
+	at org.apache.spark.scheduler.ResultTask.runTask(ResultTask.scala:93)
+	at org.apache.spark.TaskContext.runTaskWithListeners(TaskContext.scala:180)
+	at org.apache.spark.scheduler.Task.run(Task.scala:147)
+	at org.apache.spark.executor.Executor$TaskRunner.$anonfun$run$5(Executor.scala:679)
+	at org.apache.spark.util.SparkErrorUtils.tryWithSafeFinally(SparkErrorUtils.scala:86)
+	at org.apache.spark.util.SparkErrorUtils.tryWithSafeFinally$(SparkErrorUtils.scala:83)
+	at org.apache.spark.util.Utils$.tryWithSafeFinally(Utils.scala:97)
+	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:682)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+   🎯 Intercept: 719.62
+   💾 Model saved to /tmp/bitcoin_model
+
+📊 Processing Batch 62 with 37 records
+✅ Batch 62 - Model trained!
+   📈 RMSE: 596.14
+   📊 Coefficients: [-0.1297980723453105,-0.017664340621082,1.0922717494371519,1.3303882411839861e-08]
+   🎯 Intercept: 1010.35
+   💾 Model saved to /tmp/bitcoin_model
+
+📊 Processing Batch 63 with 36 records
+✅ Batch 63 - Model trained!
+   📈 RMSE: 591.06
+   📊 Coefficients: [-0.31505344953790504,1.1304177490149838,0.21186633240500555,-6.89101672964121e-09]
+   🎯 Intercept: -500.69
+   💾 Model saved to /tmp/bitcoin_model
+
+📊 Processing Batch 64 with 44 records
+✅ Batch 64 - Model trained!
+   📈 RMSE: 99.48
+   📊 Coefficients: [-0.7304712346613185,0.7689814061382102,0.8243154939752364,-2.214401288086406e-09]
+   🎯 Intercept: 2367.00
+   💾 Model saved to /tmp/bitcoin_model
+
+📊 Processing Batch 65 with 41 records
+✅ Batch 65 - Model trained!
+   📈 RMSE: 96.87
+   📊 Coefficients: [-0.8763641435996941,1.1375802050263057,0.7373656540680902,-1.5227508010701816e-08]
+   🎯 Intercept: 243.71
+   💾 Model saved to /tmp/bitcoin_model
+
+📊 Processing Batch 66 with 40 records
+✅ Batch 66 - Model trained!
+   📈 RMSE: 279.39
+   📊 Coefficients: [-0.6848933300069614,0.7930536217572637,0.8791368000156266,-6.3876765887284045e-09]
+   🎯 Intercept: 484.13
+   ⚠️  Error saving model: An error occurred while calling o12574.save.
+: org.apache.spark.SparkException: Job aborted due to stage failure: Task 0 in stage 1128.0 failed 1 times, most recent failure: Lost task 0.0 in stage 1128.0 (TID 861) (myvm.internal.cloudapp.net executor driver): ExitCodeException exitCode=1: chmod: cannot access '/tmp/bitcoin_model/metadata/_temporary/0/_temporary/attempt_202601031504116754160984960412112_1128_m_000000_861/part-00000-393ee348-165c-478a-8f25-5060976744b9-c000.txt': No such file or directory
+
+	at org.apache.hadoop.util.Shell.runCommand(Shell.java:1068)
+	at org.apache.hadoop.util.Shell.run(Shell.java:959)
+	at org.apache.hadoop.util.Shell$ShellCommandExecutor.execute(Shell.java:1282)
+	at org.apache.hadoop.util.Shell.execCommand(Shell.java:1377)
+	at org.apache.hadoop.util.Shell.execCommand(Shell.java:1359)
+	at org.apache.hadoop.fs.RawLocalFileSystem.setPermission(RawLocalFileSystem.java:1179)
+	at org.apache.hadoop.fs.RawLocalFileSystem$LocalFSFileOutputStream.<init>(RawLocalFileSystem.java:517)
+	at org.apache.hadoop.fs.RawLocalFileSystem$LocalFSFileOutputStream.<init>(RawLocalFileSystem.java:477)
+	at org.apache.hadoop.fs.RawLocalFileSystem.createOutputStreamWithMode(RawLocalFileSystem.java:640)
+	at org.apache.hadoop.fs.RawLocalFileSystem.create(RawLocalFileSystem.java:629)
+	at org.apache.hadoop.fs.RawLocalFileSystem.create(RawLocalFileSystem.java:660)
+	at org.apache.hadoop.fs.ChecksumFileSystem$ChecksumFSOutputSummer.<init>(ChecksumFileSystem.java:692)
+	at org.apache.hadoop.fs.ChecksumFileSystem.create(ChecksumFileSystem.java:780)
+	at org.apache.hadoop.fs.ChecksumFileSystem.create(ChecksumFileSystem.java:759)
+	at org.apache.hadoop.fs.FileSystem.create(FileSystem.java:1233)
+	at org.apache.hadoop.fs.FileSystem.create(FileSystem.java:1210)
+	at org.apache.hadoop.fs.FileSystem.create(FileSystem.java:1091)
+	at org.apache.spark.sql.execution.datasources.CodecStreams$.createOutputStream(CodecStreams.scala:72)
+	at org.apache.spark.sql.execution.datasources.text.TextOutputWriter.<init>(TextOutputWriter.scala:33)
+	at org.apache.spark.sql.execution.datasources.text.TextFileFormat$$anon$1.newInstance(TextFileFormat.scala:90)
+	at org.apache.spark.sql.execution.datasources.SingleDirectoryDataWriter.newOutputWriter(FileFormatDataWriter.scala:180)
+	at org.apache.spark.sql.execution.datasources.SingleDirectoryDataWriter.<init>(FileFormatDataWriter.scala:165)
+	at org.apache.spark.sql.execution.datasources.FileFormatWriter$.$anonfun$executeTask$1(FileFormatWriter.scala:394)
+	at org.apache.spark.util.Utils$.tryWithSafeFinallyAndFailureCallbacks(Utils.scala:1337)
+	at org.apache.spark.sql.execution.datasources.FileFormatWriter$.executeTask(FileFormatWriter.scala:418)
+	at org.apache.spark.sql.execution.datasources.WriteFilesExec.$anonfun$doExecuteWrite$1(WriteFiles.scala:107)
+	at org.apache.spark.rdd.RDD.$anonfun$mapPartitionsInternal$2(RDD.scala:901)
+	at org.apache.spark.rdd.RDD.$anonfun$mapPartitionsInternal$2$adapted(RDD.scala:901)
+	at org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:52)
+	at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:374)
+	at org.apache.spark.rdd.RDD.iterator(RDD.scala:338)
+	at org.apache.spark.scheduler.ResultTask.runTask(ResultTask.scala:93)
+	at org.apache.spark.TaskContext.runTaskWithListeners(TaskContext.scala:180)
+	at org.apache.spark.scheduler.Task.run(Task.scala:147)
+	at org.apache.spark.executor.Executor$TaskRunner.$anonfun$run$5(Executor.scala:679)
+	at org.apache.spark.util.SparkErrorUtils.tryWithSafeFinally(SparkErrorUtils.scala:86)
+	at org.apache.spark.util.SparkErrorUtils.tryWithSafeFinally$(SparkErrorUtils.scala:83)
+	at org.apache.spark.util.Utils$.tryWithSafeFinally(Utils.scala:97)
+	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:682)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+
+Driver stacktrace:
+	at org.apache.spark.scheduler.DAGScheduler.$anonfun$abortStage$3(DAGScheduler.scala:3003)
+	at scala.Option.getOrElse(Option.scala:201)
+	at org.apache.spark.scheduler.DAGScheduler.$anonfun$abortStage$2(DAGScheduler.scala:3003)
+	at org.apache.spark.scheduler.DAGScheduler.$anonfun$abortStage$2$adapted(DAGScheduler.scala:2995)
+	at scala.collection.immutable.List.foreach(List.scala:323)
+	at org.apache.spark.scheduler.DAGScheduler.abortStage(DAGScheduler.scala:2995)
+	at org.apache.spark.scheduler.DAGScheduler.$anonfun$handleTaskSetFailed$1(DAGScheduler.scala:1303)
+	at org.apache.spark.scheduler.DAGScheduler.$anonfun$handleTaskSetFailed$1$adapted(DAGScheduler.scala:1303)
+	at scala.Option.foreach(Option.scala:437)
+	at org.apache.spark.scheduler.DAGScheduler.handleTaskSetFailed(DAGScheduler.scala:1303)
+	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.doOnReceive(DAGScheduler.scala:3278)
+	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.onReceive(DAGScheduler.scala:3209)
+	at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.onReceive(DAGScheduler.scala:3198)
+	at org.apache.spark.util.EventLoop$$anon$1.run(EventLoop.scala:50)
+	at org.apache.spark.scheduler.DAGScheduler.runJob(DAGScheduler.scala:1017)
+	at org.apache.spark.SparkContext.runJob(SparkContext.scala:2496)
+	at org.apache.spark.sql.execution.datasources.FileFormatWriter$.$anonfun$executeWrite$4(FileFormatWriter.scala:309)
+	at org.apache.spark.sql.execution.datasources.FileFormatWriter$.writeAndCommit(FileFormatWriter.scala:270)
+	at org.apache.spark.sql.execution.datasources.FileFormatWriter$.executeWrite(FileFormatWriter.scala:306)
+	at org.apache.spark.sql.execution.datasources.FileFormatWriter$.write(FileFormatWriter.scala:189)
+	at org.apache.spark.sql.execution.datasources.InsertIntoHadoopFsRelationCommand.run(InsertIntoHadoopFsRelationCommand.scala:195)
+	at org.apache.spark.sql.execution.command.DataWritingCommandExec.sideEffectResult$lzycompute(commands.scala:117)
+	at org.apache.spark.sql.execution.command.DataWritingCommandExec.sideEffectResult(commands.scala:115)
+	at org.apache.spark.sql.execution.command.DataWritingCommandExec.executeCollect(commands.scala:129)
+	at org.apache.spark.sql.execution.QueryExecution.$anonfun$eagerlyExecuteCommands$2(QueryExecution.scala:185)
+	at org.apache.spark.sql.execution.SQLExecution$.$anonfun$withNewExecutionId0$8(SQLExecution.scala:176)
+	at org.apache.spark.sql.execution.SQLExecution$.withSessionTagsApplied(SQLExecution.scala:284)
+	at org.apache.spark.sql.execution.SQLExecution$.$anonfun$withNewExecutionId0$7(SQLExecution.scala:138)
+	at org.apache.spark.JobArtifactSet$.withActiveJobArtifactState(JobArtifactSet.scala:94)
+	at org.apache.spark.sql.artifact.ArtifactManager.$anonfun$withResources$1(ArtifactManager.scala:112)
+	at org.apache.spark.sql.artifact.ArtifactManager.withClassLoaderIfNeeded(ArtifactManager.scala:106)
+	at org.apache.spark.sql.artifact.ArtifactManager.withResources(ArtifactManager.scala:111)
+	at org.apache.spark.sql.execution.SQLExecution$.$anonfun$withNewExecutionId0$6(SQLExecution.scala:138)
+	at org.apache.spark.sql.execution.SQLExecution$.withSQLConfPropagated(SQLExecution.scala:307)
+	at org.apache.spark.sql.execution.SQLExecution$.$anonfun$withNewExecutionId0$1(SQLExecution.scala:137)
+	at org.apache.spark.sql.SparkSession.withActive(SparkSession.scala:804)
+	at org.apache.spark.sql.execution.SQLExecution$.withNewExecutionId0(SQLExecution.scala:91)
+	at org.apache.spark.sql.execution.SQLExecution$.withNewExecutionId(SQLExecution.scala:249)
+	at org.apache.spark.sql.execution.QueryExecution.$anonfun$eagerlyExecuteCommands$1(QueryExecution.scala:185)
+	at org.apache.spark.sql.execution.QueryExecution$.withInternalError(QueryExecution.scala:717)
+	at org.apache.spark.sql.execution.QueryExecution.org$apache$spark$sql$execution$QueryExecution$$eagerlyExecute$1(QueryExecution.scala:184)
+	at org.apache.spark.sql.execution.QueryExecution$$anonfun$eagerlyExecuteCommands$3.applyOrElse(QueryExecution.scala:201)
+	at org.apache.spark.sql.execution.QueryExecution$$anonfun$eagerlyExecuteCommands$3.applyOrElse(QueryExecution.scala:194)
+	at org.apache.spark.sql.catalyst.trees.TreeNode.$anonfun$transformDownWithPruning$1(TreeNode.scala:491)
+	at org.apache.spark.sql.catalyst.trees.CurrentOrigin$.withOrigin(origin.scala:107)
+	at org.apache.spark.sql.catalyst.trees.TreeNode.transformDownWithPruning(TreeNode.scala:491)
+	at org.apache.spark.sql.catalyst.plans.logical.LogicalPlan.org$apache$spark$sql$catalyst$plans$logical$AnalysisHelper$$super$transformDownWithPruning(LogicalPlan.scala:37)
+	at org.apache.spark.sql.catalyst.plans.logical.AnalysisHelper.transformDownWithPruning(AnalysisHelper.scala:360)
+	at org.apache.spark.sql.catalyst.plans.logical.AnalysisHelper.transformDownWithPruning$(AnalysisHelper.scala:356)
+	at org.apache.spark.sql.catalyst.plans.logical.LogicalPlan.transformDownWithPruning(LogicalPlan.scala:37)
+	at org.apache.spark.sql.catalyst.plans.logical.LogicalPlan.transformDownWithPruning(LogicalPlan.scala:37)
+	at org.apache.spark.sql.catalyst.trees.TreeNode.transformDown(TreeNode.scala:467)
+	at org.apache.spark.sql.execution.QueryExecution.eagerlyExecuteCommands(QueryExecution.scala:194)
+	at org.apache.spark.sql.execution.QueryExecution.$anonfun$lazyCommandExecuted$1(QueryExecution.scala:155)
+	at scala.util.Try$.apply(Try.scala:217)
+	at org.apache.spark.util.Utils$.doTryWithCallerStacktrace(Utils.scala:1392)
+	at org.apache.spark.util.Utils$.getTryWithCallerStacktrace(Utils.scala:1453)
+	at org.apache.spark.util.LazyTry.get(LazyTry.scala:58)
+	at org.apache.spark.sql.execution.QueryExecution.commandExecuted(QueryExecution.scala:160)
+	at org.apache.spark.sql.execution.QueryExecution.assertCommandExecuted(QueryExecution.scala:239)
+	at org.apache.spark.sql.classic.DataFrameWriter.runCommand(DataFrameWriter.scala:592)
+	at org.apache.spark.sql.classic.DataFrameWriter.save(DataFrameWriter.scala:115)
+	at org.apache.spark.sql.DataFrameWriter.text(DataFrameWriter.scala:409)
+	at org.apache.spark.ml.util.ReadWriteUtils$.saveText(ReadWrite.scala:1050)
+	at org.apache.spark.ml.util.DefaultParamsWriter$.saveMetadata(ReadWrite.scala:477)
+	at org.apache.spark.ml.util.DefaultParamsWriter$.saveMetadata(ReadWrite.scala:488)
+	at org.apache.spark.ml.regression.InternalLinearRegressionModelWriter.write(LinearRegression.scala:865)
+	at org.apache.spark.ml.util.GeneralMLWriter.saveImpl(ReadWrite.scala:281)
+	at org.apache.spark.ml.util.MLWriter.save(ReadWrite.scala:176)
+	at jdk.internal.reflect.GeneratedMethodAccessor184.invoke(Unknown Source)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:569)
+	at py4j.reflection.MethodInvoker.invoke(MethodInvoker.java:244)
+	at py4j.reflection.ReflectionEngine.invoke(ReflectionEngine.java:374)
+	at py4j.Gateway.invoke(Gateway.java:282)
+	at py4j.commands.AbstractCommand.invokeMethod(AbstractCommand.java:132)
+	at py4j.commands.CallCommand.execute(CallCommand.java:79)
+	at py4j.ClientServerConnection.sendCommand(ClientServerConnection.java:246)
+	at py4j.CallbackClient.sendCommand(CallbackClient.java:384)
+	at py4j.CallbackClient.sendCommand(CallbackClient.java:356)
+	at py4j.reflection.PythonProxyHandler.invoke(PythonProxyHandler.java:106)
+	at jdk.proxy3/jdk.proxy3.$Proxy58.call(Unknown Source)
+	at org.apache.spark.sql.execution.streaming.sources.PythonForeachBatchHelper$.$anonfun$callForeachBatch$1(ForeachBatchSink.scala:87)
+	at org.apache.spark.sql.execution.streaming.sources.PythonForeachBatchHelper$.$anonfun$callForeachBatch$1$adapted(ForeachBatchSink.scala:87)
+	at org.apache.spark.sql.execution.streaming.sources.ForeachBatchSink.callBatchWriter(ForeachBatchSink.scala:56)
+	at org.apache.spark.sql.execution.streaming.sources.ForeachBatchSink.addBatch(ForeachBatchSink.scala:49)
+	at org.apache.spark.sql.execution.streaming.runtime.MicroBatchExecution.$anonfun$runBatch$19(MicroBatchExecution.scala:1074)
+	at org.apache.spark.sql.execution.SQLExecution$.$anonfun$withNewExecutionId0$8(SQLExecution.scala:176)
+	at org.apache.spark.sql.execution.SQLExecution$.withSessionTagsApplied(SQLExecution.scala:284)
+	at org.apache.spark.sql.execution.SQLExecution$.$anonfun$withNewExecutionId0$7(SQLExecution.scala:138)
+	at org.apache.spark.JobArtifactSet$.withActiveJobArtifactState(JobArtifactSet.scala:94)
+	at org.apache.spark.sql.artifact.ArtifactManager.$anonfun$withResources$1(ArtifactManager.scala:112)
+	at org.apache.spark.sql.artifact.ArtifactManager.withClassLoaderIfNeeded(ArtifactManager.scala:106)
+	at org.apache.spark.sql.artifact.ArtifactManager.withResources(ArtifactManager.scala:111)
+	at org.apache.spark.sql.execution.SQLExecution$.$anonfun$withNewExecutionId0$6(SQLExecution.scala:138)
+	at org.apache.spark.sql.execution.SQLExecution$.withSQLConfPropagated(SQLExecution.scala:307)
+	at org.apache.spark.sql.execution.SQLExecution$.$anonfun$withNewExecutionId0$1(SQLExecution.scala:137)
+	at org.apache.spark.sql.SparkSession.withActive(SparkSession.scala:804)
+	at org.apache.spark.sql.execution.SQLExecution$.withNewExecutionId0(SQLExecution.scala:91)
+	at org.apache.spark.sql.execution.SQLExecution$.withNewExecutionId(SQLExecution.scala:249)
+	at org.apache.spark.sql.execution.streaming.runtime.MicroBatchExecution.$anonfun$runBatch$18(MicroBatchExecution.scala:1065)
+	at org.apache.spark.sql.execution.streaming.runtime.ProgressContext.reportTimeTaken(ProgressReporter.scala:200)
+	at org.apache.spark.sql.execution.streaming.runtime.MicroBatchExecution.runBatch(MicroBatchExecution.scala:1065)
+	at org.apache.spark.sql.execution.streaming.runtime.MicroBatchExecution.$anonfun$executeOneBatch$2(MicroBatchExecution.scala:516)
+	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.scala:18)
+	at org.apache.spark.sql.execution.streaming.runtime.ProgressContext.reportTimeTaken(ProgressReporter.scala:200)
+	at org.apache.spark.sql.execution.streaming.runtime.MicroBatchExecution.executeOneBatch(MicroBatchExecution.scala:481)
+	at org.apache.spark.sql.execution.streaming.runtime.MicroBatchExecution.$anonfun$runActivatedStream$1(MicroBatchExecution.scala:461)
+	at org.apache.spark.sql.execution.streaming.runtime.MicroBatchExecution.$anonfun$runActivatedStream$1$adapted(MicroBatchExecution.scala:461)
+	at org.apache.spark.sql.execution.streaming.runtime.TriggerExecutor.runOneBatch(TriggerExecutor.scala:40)
+	at org.apache.spark.sql.execution.streaming.runtime.TriggerExecutor.runOneBatch$(TriggerExecutor.scala:38)
+	at org.apache.spark.sql.execution.streaming.runtime.ProcessingTimeExecutor.runOneBatch(TriggerExecutor.scala:71)
+	at org.apache.spark.sql.execution.streaming.runtime.ProcessingTimeExecutor.execute(TriggerExecutor.scala:83)
+	at org.apache.spark.sql.execution.streaming.runtime.MicroBatchExecution.runActivatedStream(MicroBatchExecution.scala:461)
+	at org.apache.spark.sql.execution.streaming.runtime.StreamExecution.$anonfun$runStream$1(StreamExecution.scala:347)
+	at scala.runtime.java8.JFunction0$mcV$sp.apply(JFunction0$mcV$sp.scala:18)
+	at org.apache.spark.sql.SparkSession.withActive(SparkSession.scala:804)
+	at org.apache.spark.sql.execution.streaming.runtime.StreamExecution.org$apache$spark$sql$execution$streaming$runtime$StreamExecution$$runStream(StreamExecution.scala:307)
+	at org.apache.spark.sql.execution.streaming.runtime.StreamExecution$$anon$1.run(StreamExecution.scala:230)
+	Suppressed: org.apache.spark.util.Utils$OriginalTryStackTraceException: Full stacktrace of original doTryWithCallerStacktrace caller
+		at org.apache.spark.scheduler.DAGScheduler.$anonfun$abortStage$3(DAGScheduler.scala:3003)
+		at scala.Option.getOrElse(Option.scala:201)
+		at org.apache.spark.scheduler.DAGScheduler.$anonfun$abortStage$2(DAGScheduler.scala:3003)
+		at org.apache.spark.scheduler.DAGScheduler.$anonfun$abortStage$2$adapted(DAGScheduler.scala:2995)
+		at scala.collection.immutable.List.foreach(List.scala:323)
+		at org.apache.spark.scheduler.DAGScheduler.abortStage(DAGScheduler.scala:2995)
+		at org.apache.spark.scheduler.DAGScheduler.$anonfun$handleTaskSetFailed$1(DAGScheduler.scala:1303)
+		at org.apache.spark.scheduler.DAGScheduler.$anonfun$handleTaskSetFailed$1$adapted(DAGScheduler.scala:1303)
+		at scala.Option.foreach(Option.scala:437)
+		at org.apache.spark.scheduler.DAGScheduler.handleTaskSetFailed(DAGScheduler.scala:1303)
+		at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.doOnReceive(DAGScheduler.scala:3278)
+		at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.onReceive(DAGScheduler.scala:3209)
+		at org.apache.spark.scheduler.DAGSchedulerEventProcessLoop.onReceive(DAGScheduler.scala:3198)
+		at org.apache.spark.util.EventLoop$$anon$1.run(EventLoop.scala:50)
+		at org.apache.spark.scheduler.DAGScheduler.runJob(DAGScheduler.scala:1017)
+		at org.apache.spark.SparkContext.runJob(SparkContext.scala:2496)
+		at org.apache.spark.sql.execution.datasources.FileFormatWriter$.$anonfun$executeWrite$4(FileFormatWriter.scala:309)
+		at org.apache.spark.sql.execution.datasources.FileFormatWriter$.writeAndCommit(FileFormatWriter.scala:270)
+		at org.apache.spark.sql.execution.datasources.FileFormatWriter$.executeWrite(FileFormatWriter.scala:306)
+		at org.apache.spark.sql.execution.datasources.FileFormatWriter$.write(FileFormatWriter.scala:189)
+		at org.apache.spark.sql.execution.datasources.InsertIntoHadoopFsRelationCommand.run(InsertIntoHadoopFsRelationCommand.scala:195)
+		at org.apache.spark.sql.execution.command.DataWritingCommandExec.sideEffectResult$lzycompute(commands.scala:117)
+		at org.apache.spark.sql.execution.command.DataWritingCommandExec.sideEffectResult(commands.scala:115)
+		at org.apache.spark.sql.execution.command.DataWritingCommandExec.executeCollect(commands.scala:129)
+		at org.apache.spark.sql.execution.QueryExecution.$anonfun$eagerlyExecuteCommands$2(QueryExecution.scala:185)
+		at org.apache.spark.sql.execution.SQLExecution$.$anonfun$withNewExecutionId0$8(SQLExecution.scala:176)
+		at org.apache.spark.sql.execution.SQLExecution$.withSessionTagsApplied(SQLExecution.scala:284)
+		at org.apache.spark.sql.execution.SQLExecution$.$anonfun$withNewExecutionId0$7(SQLExecution.scala:138)
+		at org.apache.spark.JobArtifactSet$.withActiveJobArtifactState(JobArtifactSet.scala:94)
+		at org.apache.spark.sql.artifact.ArtifactManager.$anonfun$withResources$1(ArtifactManager.scala:112)
+		at org.apache.spark.sql.artifact.ArtifactManager.withClassLoaderIfNeeded(ArtifactManager.scala:106)
+		at org.apache.spark.sql.artifact.ArtifactManager.withResources(ArtifactManager.scala:111)
+		at org.apache.spark.sql.execution.SQLExecution$.$anonfun$withNewExecutionId0$6(SQLExecution.scala:138)
+		at org.apache.spark.sql.execution.SQLExecution$.withSQLConfPropagated(SQLExecution.scala:307)
+		at org.apache.spark.sql.execution.SQLExecution$.$anonfun$withNewExecutionId0$1(SQLExecution.scala:137)
+		at org.apache.spark.sql.SparkSession.withActive(SparkSession.scala:804)
+		at org.apache.spark.sql.execution.SQLExecution$.withNewExecutionId0(SQLExecution.scala:91)
+		at org.apache.spark.sql.execution.SQLExecution$.withNewExecutionId(SQLExecution.scala:249)
+		at org.apache.spark.sql.execution.QueryExecution.$anonfun$eagerlyExecuteCommands$1(QueryExecution.scala:185)
+		at org.apache.spark.sql.execution.QueryExecution$.withInternalError(QueryExecution.scala:717)
+		at org.apache.spark.sql.execution.QueryExecution.org$apache$spark$sql$execution$QueryExecution$$eagerlyExecute$1(QueryExecution.scala:184)
+		at org.apache.spark.sql.execution.QueryExecution$$anonfun$eagerlyExecuteCommands$3.applyOrElse(QueryExecution.scala:201)
+		at org.apache.spark.sql.execution.QueryExecution$$anonfun$eagerlyExecuteCommands$3.applyOrElse(QueryExecution.scala:194)
+		at org.apache.spark.sql.catalyst.trees.TreeNode.$anonfun$transformDownWithPruning$1(TreeNode.scala:491)
+		at org.apache.spark.sql.catalyst.trees.CurrentOrigin$.withOrigin(origin.scala:107)
+		at org.apache.spark.sql.catalyst.trees.TreeNode.transformDownWithPruning(TreeNode.scala:491)
+		at org.apache.spark.sql.catalyst.plans.logical.LogicalPlan.org$apache$spark$sql$catalyst$plans$logical$AnalysisHelper$$super$transformDownWithPruning(LogicalPlan.scala:37)
+		at org.apache.spark.sql.catalyst.plans.logical.AnalysisHelper.transformDownWithPruning(AnalysisHelper.scala:360)
+		at org.apache.spark.sql.catalyst.plans.logical.AnalysisHelper.transformDownWithPruning$(AnalysisHelper.scala:356)
+		at org.apache.spark.sql.catalyst.plans.logical.LogicalPlan.transformDownWithPruning(LogicalPlan.scala:37)
+		at org.apache.spark.sql.catalyst.plans.logical.LogicalPlan.transformDownWithPruning(LogicalPlan.scala:37)
+		at org.apache.spark.sql.catalyst.trees.TreeNode.transformDown(TreeNode.scala:467)
+		at org.apache.spark.sql.execution.QueryExecution.eagerlyExecuteCommands(QueryExecution.scala:194)
+		at org.apache.spark.sql.execution.QueryExecution.$anonfun$lazyCommandExecuted$1(QueryExecution.scala:155)
+		at scala.util.Try$.apply(Try.scala:217)
+		at org.apache.spark.util.Utils$.doTryWithCallerStacktrace(Utils.scala:1392)
+		at org.apache.spark.util.LazyTry.tryT$lzycompute(LazyTry.scala:46)
+		at org.apache.spark.util.LazyTry.tryT(LazyTry.scala:46)
+		... 62 more
+Caused by: ExitCodeException exitCode=1: chmod: cannot access '/tmp/bitcoin_model/metadata/_temporary/0/_temporary/attempt_202601031504116754160984960412112_1128_m_000000_861/part-00000-393ee348-165c-478a-8f25-5060976744b9-c000.txt': No such file or directory
+
+	at org.apache.hadoop.util.Shell.runCommand(Shell.java:1068)
+	at org.apache.hadoop.util.Shell.run(Shell.java:959)
+	at org.apache.hadoop.util.Shell$ShellCommandExecutor.execute(Shell.java:1282)
+	at org.apache.hadoop.util.Shell.execCommand(Shell.java:1377)
+	at org.apache.hadoop.util.Shell.execCommand(Shell.java:1359)
+	at org.apache.hadoop.fs.RawLocalFileSystem.setPermission(RawLocalFileSystem.java:1179)
+	at org.apache.hadoop.fs.RawLocalFileSystem$LocalFSFileOutputStream.<init>(RawLocalFileSystem.java:517)
+	at org.apache.hadoop.fs.RawLocalFileSystem$LocalFSFileOutputStream.<init>(RawLocalFileSystem.java:477)
+	at org.apache.hadoop.fs.RawLocalFileSystem.createOutputStreamWithMode(RawLocalFileSystem.java:640)
+	at org.apache.hadoop.fs.RawLocalFileSystem.create(RawLocalFileSystem.java:629)
+	at org.apache.hadoop.fs.RawLocalFileSystem.create(RawLocalFileSystem.java:660)
+	at org.apache.hadoop.fs.ChecksumFileSystem$ChecksumFSOutputSummer.<init>(ChecksumFileSystem.java:692)
+	at org.apache.hadoop.fs.ChecksumFileSystem.create(ChecksumFileSystem.java:780)
+	at org.apache.hadoop.fs.ChecksumFileSystem.create(ChecksumFileSystem.java:759)
+	at org.apache.hadoop.fs.FileSystem.create(FileSystem.java:1233)
+	at org.apache.hadoop.fs.FileSystem.create(FileSystem.java:1210)
+	at org.apache.hadoop.fs.FileSystem.create(FileSystem.java:1091)
+	at org.apache.spark.sql.execution.datasources.CodecStreams$.createOutputStream(CodecStreams.scala:72)
+	at org.apache.spark.sql.execution.datasources.text.TextOutputWriter.<init>(TextOutputWriter.scala:33)
+	at org.apache.spark.sql.execution.datasources.text.TextFileFormat$$anon$1.newInstance(TextFileFormat.scala:90)
+	at org.apache.spark.sql.execution.datasources.SingleDirectoryDataWriter.newOutputWriter(FileFormatDataWriter.scala:180)
+	at org.apache.spark.sql.execution.datasources.SingleDirectoryDataWriter.<init>(FileFormatDataWriter.scala:165)
+	at org.apache.spark.sql.execution.datasources.FileFormatWriter$.$anonfun$executeTask$1(FileFormatWriter.scala:394)
+	at org.apache.spark.util.Utils$.tryWithSafeFinallyAndFailureCallbacks(Utils.scala:1337)
+	at org.apache.spark.sql.execution.datasources.FileFormatWriter$.executeTask(FileFormatWriter.scala:418)
+	at org.apache.spark.sql.execution.datasources.WriteFilesExec.$anonfun$doExecuteWrite$1(WriteFiles.scala:107)
+	at org.apache.spark.rdd.RDD.$anonfun$mapPartitionsInternal$2(RDD.scala:901)
+	at org.apache.spark.rdd.RDD.$anonfun$mapPartitionsInternal$2$adapted(RDD.scala:901)
+	at org.apache.spark.rdd.MapPartitionsRDD.compute(MapPartitionsRDD.scala:52)
+	at org.apache.spark.rdd.RDD.computeOrReadCheckpoint(RDD.scala:374)
+	at org.apache.spark.rdd.RDD.iterator(RDD.scala:338)
+	at org.apache.spark.scheduler.ResultTask.runTask(ResultTask.scala:93)
+	at org.apache.spark.TaskContext.runTaskWithListeners(TaskContext.scala:180)
+	at org.apache.spark.scheduler.Task.run(Task.scala:147)
+	at org.apache.spark.executor.Executor$TaskRunner.$anonfun$run$5(Executor.scala:679)
+	at org.apache.spark.util.SparkErrorUtils.tryWithSafeFinally(SparkErrorUtils.scala:86)
+	at org.apache.spark.util.SparkErrorUtils.tryWithSafeFinally$(SparkErrorUtils.scala:83)
+	at org.apache.spark.util.Utils$.tryWithSafeFinally(Utils.scala:97)
+	at org.apache.spark.executor.Executor$TaskRunner.run(Executor.scala:682)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1136)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:635)
+	at java.base/java.lang.Thread.run(Thread.java:840)
+26/01/03 15:04:12 WARN Instrumentation: [56a821cb] regParam is zero, which might cause numerical instability and overfitting.
+[Stage 1143:>                                                       (0 + 1) / 1]                                                                                [Stage 1155:>                                                       (0 + 1) / 1]                                                                                26/01/03 15:04:16 WARN Instrumentation: [ad5864f1] regParam is zero, which might cause numerical instability and overfitting.

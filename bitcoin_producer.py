@@ -22,14 +22,13 @@ for idx, row in df.iterrows():
         "high": float(row["High"]),
         "low": float(row["Low"]),
         "close": float(row["Close"]),
-        "volume": float(row["Volume"]),
-        "marketcap": float(row["Marketcap"])
+        "volume": float(row["Volume"])
     }
 
     producer.send("bitcoin_prices", message)
     print(f"➡ Sent: {message}")
 
-    time.sleep(0.3)   # Wait 0.3 sec — simulate streaming
+    time.sleep(0.05)   # Wait 0.3 sec — simulate streaming
 
 print("\n✔ All data has been sent to Kafka!")
 producer.flush()

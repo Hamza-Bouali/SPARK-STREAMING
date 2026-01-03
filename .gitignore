@@ -1,5 +1,5 @@
 # IGNORE ENVIRONMENTS
-venv/
+*venv/
 venv310/
 
 # IGNORE SPARK OUTPUT
