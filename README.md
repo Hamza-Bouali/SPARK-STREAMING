@@ -93,19 +93,43 @@ pip install --upgrade pip
 pip install -r requirements.txt
 ```
 
-### 5. Start Docker Services
+### 5. Start the Complete Pipeline (Docker)
+
+**🚀 One-Command Start:**
 ```bash
-# Start Kafka, Zookeeper, and Kafka UI
+# This will start ALL services (Kafka, Producer, Spark, API)
+./start_pipeline.sh
+```
+
+**Manual Docker Start:**
+```bash
+# Build and start all services
 docker compose up -d
 
-# Verify services are running
+# View logs
+docker compose logs -f
+
+# Check service status
+docker compose ps
+```
+
+**Expected Services:**
+- ✅ Kafka & Zookeeper (port 9092, 2181)
+- ✅ Kafka UI (port 8080)
+- ✅ Bitcoin Producer (sends data once, then exits)
+- ✅ Spark Streaming (continuously running)
+- ✅ API Service (port 8000)
+
+**Verification:**
+```bash
+# Check all services
 docker compose ps
 
-# Expected output:
-# NAME                   STATUS          PORTS
-# kafka                  Up              0.0.0.0:9092->9092/tcp
-# zookeeper              Up              0.0.0.0:2181->2181/tcp
-# kafka-ui               Up              0.0.0.0:8080->8080/tcp
+# Test API health
+curl http://localhost:8000/health
+
+# View Kafka UI
+# Open: http://localhost:8080
 ```
 
 ### 6. Verify Installation
@@ -336,51 +360,65 @@ This architecture can be adapted for:
 
 ## 🚀 13. Running the Complete Pipeline
 
-### Prerequisites
-- Docker & Docker Compose
-- Python 3.12+ with virtual environment
-- All dependencies installed (run `pip install -r requirements.txt`)
+### Option 1: Docker (Recommended - Everything Automated)
 
-### Quick Start
-
-#### Option 1: Using the Pipeline Script (Recommended)
+**One Command to Start Everything:**
 ```bash
-# Activate virtual environment
-source .venv/bin/activate
-
-# Run the interactive pipeline
-./run_pipeline.sh
+./start_pipeline.sh
 ```
 
-Choose from the menu:
-1. Start Producer only
-2. Start Streaming ML Pipeline
-3. Start FastAPI Service
-4. **Run Complete Pipeline** (recommended)
-5. Test API
-6. Stop all services
+This automatically starts:
+- ✅ Kafka & Zookeeper
+- ✅ Kafka UI
+- ✅ Producer (sends all data, then exits)
+- ✅ Spark Streaming (runs continuously)
+- ✅ API Service (runs continuously)
 
-#### Option 2: Manual Execution
-
-**Step 1: Start Docker Services**
+**Manual Docker Commands:**
 ```bash
+# Start all services
 docker compose up -d
+
+# View all logs
+docker compose logs -f
+
+# View specific service logs
+docker compose logs -f spark-streaming
+docker compose logs -f api-service
+
+# Stop all services
+docker compose down
+
+# Restart a specific service
+docker compose restart spark-streaming
 ```
 
-**Step 2: Start Kafka Producer** (Terminal 1)
+### Option 2: Local Development (Manual)
+
+### Option 2: Local Development (Manual)
+
+**Prerequisites:**
+- Python 3.12+ with virtual environment
+- Java 17+ installed
+- Docker running for Kafka only
+
+**Step 1: Start Kafka Only**
 ```bash
+# Start only Kafka and Zookeeper
+docker compose up -d kafka zookeeper kafka-ui
+```
+
+**Step 2: Start Services Manually**
+```bash
+# Terminal 1: Producer
 source .venv/bin/activate
 python bitcoin_producer.py
-```
 
-**Step 3: Start Streaming ML Pipeline** (Terminal 2)
-```bash
+# Terminal 2: Spark Streaming
 source .venv/bin/activate
 python spark_realtime_ml.py
-```
 
-**Step 4: Start FastAPI Prediction Service** (Terminal 3)
-```bash
+# Terminal 3: API Service
 source .venv/bin/activate
 python api_service.py
 ```

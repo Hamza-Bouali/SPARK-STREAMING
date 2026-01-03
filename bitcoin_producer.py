@@ -1,18 +1,21 @@
 import pandas as pd
 import json
 import time
+import os
 from kafka import KafkaProducer
 
 # 1) Read Bitcoin CSV file
 df = pd.read_csv("coin_Bitcoin.csv")
 
-# 2) Create Kafka Producer
+# 2) Create Kafka Producer (Docker or local)
+kafka_servers = os.getenv("KAFKA_BOOTSTRAP_SERVERS", "localhost:9092")
 producer = KafkaProducer(
-    bootstrap_servers="localhost:9092",
+    bootstrap_servers=kafka_servers,
     value_serializer=lambda v: json.dumps(v).encode("utf-8")
 )
 
-print("📡 Bitcoin Producer started... Sending messages to Kafka.\n")
+print(f"📡 Bitcoin Producer started... Connecting to Kafka at {kafka_servers}")
+
 
 # 3) Send each CSV row to Kafka
 for idx, row in df.iterrows():

@@ -57,3 +57,53 @@ services:
       SPARK_MASTER_URL: "spark://spark-master:7077"
     ports:
       - "8081:8081"
+
+  producer:
+    build: .
+    container_name: bitcoin-producer
+    depends_on:
+      - kafka
+    command: python bitcoin_producer.py
+    environment:
+      - KAFKA_BOOTSTRAP_SERVERS=kafka:29092
+    restart: "no"
+    networks:
+      - default
+
+  spark-streaming:
+    build: .
+    container_name: spark-streaming
+    depends_on:
+      - kafka
+      - producer
+    command: python spark_realtime_ml.py
+    environment:
+      - KAFKA_BOOTSTRAP_SERVERS=kafka:29092
+      - JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
+    volumes:
+      - ./checkpoint:/app/checkpoint
+      - ./bitcoin_model:/app/bitcoin_model
+      - ./model_metrics.txt:/app/model_metrics.txt
+    restart: unless-stopped
+    networks:
+      - default
+
+  api-service:
+    build: .
+    container_name: api-service
+    depends_on:
+      - spark-streaming
+    command: python api_service.py
+    ports:
+      - "8000:8000"
+    environment:
+      - JAVA_HOME=/usr/lib/jvm/java-17-openjdk-amd64
+    volumes:
+      - ./bitcoin_model:/app/bitcoin_model
+    restart: unless-stopped
+    networks:
+      - default
+
+networks:
+  default:
+    driver: bridge

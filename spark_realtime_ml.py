@@ -6,6 +6,9 @@ from pyspark.ml.regression import LinearRegression
 from pyspark.ml.evaluation import RegressionEvaluator
 import os
 
+# Kafka connection (Docker or local)
+kafka_servers = os.getenv("KAFKA_BOOTSTRAP_SERVERS", "localhost:9092")
+
 # Create Spark session with compatible Kafka connector for PySpark 4.1.0
 spark = SparkSession.builder \
     .appName("BitcoinRealtimeML") \
@@ -15,7 +18,7 @@ spark = SparkSession.builder \
 
 spark.sparkContext.setLogLevel("WARN")
 
-print("🚀 Starting Bitcoin Real-time ML Pipeline...")
+print(f"🚀 Starting Bitcoin Real-time ML Pipeline... Connecting to Kafka at {kafka_servers}")
 
 # JSON Schema (removed marketcap)
 schema = StructType([
@@ -30,7 +33,7 @@ schema = StructType([
 # Read from Kafka
 df = spark.readStream \
     .format("kafka") \
-    .option("kafka.bootstrap.servers", "localhost:9092") \
+    .option("kafka.bootstrap.servers", kafka_servers) \
     .option("subscribe", "bitcoin_prices") \
     .option("startingOffsets", "earliest") \
     .load()
