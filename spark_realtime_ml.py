@@ -2,7 +2,7 @@ from pyspark.sql import SparkSession
 from pyspark.sql.functions import from_json, col, window
 from pyspark.sql.types import StructType, StructField, StringType, DoubleType
 from pyspark.ml.feature import VectorAssembler
-from pyspark.ml.regression import LinearRegression
+from pyspark.ml.regression import GBTRegressor
 from pyspark.ml.evaluation import RegressionEvaluator
 import os
 
@@ -70,19 +70,32 @@ def train_and_save_model(batch_df, batch_id):
         print(f"⚠️  Batch {batch_id}: Not enough data for training")
         return
     
-    # Train model
-    lr = LinearRegression(featuresCol="features", labelCol="label")
-    model = lr.fit(train_data)
+    # Train Gradient Boosting Regressor model
+    gbt = GBTRegressor(
+        labelCol="label",
+        featuresCol="features",
+        maxDepth=5,                    # Depth of trees
+        maxBins=32,                    # Number of bins for feature discretization
+        numTrees=20,                   # Number of boosting stages
+        stepSize=0.1,                  # Learning rate
+        seed=42
+    )
+    model = gbt.fit(train_data)
     
     # Evaluate on test data
     predictions = model.transform(test_data)
     evaluator = RegressionEvaluator(labelCol="label", predictionCol="prediction", metricName="rmse")
     rmse = evaluator.evaluate(predictions)
     
-    print(f"✅ Batch {batch_id} - Model trained!")
+    # Also calculate MAE for better insight
+    mae_evaluator = RegressionEvaluator(labelCol="label", predictionCol="prediction", metricName="mae")
+    mae = mae_evaluator.evaluate(predictions)
+    
+    print(f"✅ Batch {batch_id} - GBT Model trained!")
     print(f"   📈 RMSE: {rmse:.2f}")
-    print(f"   📊 Coefficients: {model.coefficients}")
-    print(f"   🎯 Intercept: {model.intercept:.2f}")
+    print(f"   📊 MAE: {mae:.2f}")
+    print(f"   🌳 Number of trees: {model.numTrees}")
+    print(f"   📋 Feature importances: {[f'{v:.4f}' for v in model.featureImportances.toArray()]}")
     
     # Save model (overwrite with latest)
     model_path = "./bitcoin_model"
@@ -92,9 +105,12 @@ def train_and_save_model(batch_df, batch_id):
         
         # Also save metadata
         with open("./model_metrics.txt", "w") as f:
+            f.write(f"Model: GradientBoosting Regressor\n")
             f.write(f"RMSE: {rmse}\n")
-            f.write(f"Coefficients: {model.coefficients}\n")
-            f.write(f"Intercept: {model.intercept}\n")
+            f.write(f"MAE: {mae}\n")
+            f.write(f"Trees: {model.numTrees}\n")
+            f.write(f"Max Depth: 5\n")
+            f.write(f"Feature Importances: {model.featureImportances.toArray()}\n")
             f.write(f"Batch: {batch_id}\n")
     except Exception as e:
         print(f"   ⚠️  Error saving model: {e}")
