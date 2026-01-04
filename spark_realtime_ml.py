@@ -5,8 +5,10 @@ from pyspark.ml.feature import VectorAssembler
 from pyspark.ml.regression import GBTRegressor
 from pyspark.ml.evaluation import RegressionEvaluator
 import os
+import json
+from datetime import datetime
 
-# Kafka connection (Docker or local)
+# Kafka connection (Docker)
 kafka_servers = os.getenv("KAFKA_BOOTSTRAP_SERVERS", "localhost:9092")
 
 # Create Spark session with compatible Kafka connector for PySpark 4.1.0
@@ -51,6 +53,26 @@ print("✅ Data cleaning applied")
 feature_cols = ["open", "high", "low", "volume"]
 assembler = VectorAssembler(inputCols=feature_cols, outputCol="features")
 
+# Helper function to load/save metrics history
+def load_metrics_history():
+    """Load existing metrics history"""
+    history_file = "./metrics_history.json"
+    try:
+        if os.path.exists(history_file):
+            with open(history_file, 'r') as f:
+                return json.load(f)
+    except:
+        pass
+    return []
+
+def save_metrics_history(history):
+    """Save metrics history to JSON"""
+    try:
+        with open("./metrics_history.json", "w") as f:
+            json.dump(history, f, indent=2)
+    except Exception as e:
+        print(f"⚠️  Error saving metrics history: {e}")
+
 # Function to train model on each batch
 def train_and_save_model(batch_df, batch_id):
     if batch_df.count() == 0:
@@ -76,7 +98,7 @@ def train_and_save_model(batch_df, batch_id):
         featuresCol="features",
         maxDepth=5,                    # Depth of trees
         maxBins=32,                    # Number of bins for feature discretization
-        numTrees=20,                   # Number of boosting stages
+        maxIter=20,                    # Number of boosting iterations (trees)
         stepSize=0.1,                  # Learning rate
         seed=42
     )
@@ -94,7 +116,7 @@ def train_and_save_model(batch_df, batch_id):
     print(f"✅ Batch {batch_id} - GBT Model trained!")
     print(f"   📈 RMSE: {rmse:.2f}")
     print(f"   📊 MAE: {mae:.2f}")
-    print(f"   🌳 Number of trees: {model.numTrees}")
+    print(f"   🌳 Number of iterations: 20")
     print(f"   📋 Feature importances: {[f'{v:.4f}' for v in model.featureImportances.toArray()]}")
     
     # Save model (overwrite with latest)
@@ -103,15 +125,32 @@ def train_and_save_model(batch_df, batch_id):
         model.write().overwrite().save(model_path)
         print(f"   💾 Model saved to {model_path}")
         
+        # Get feature importances as a list
+        feature_importances = model.featureImportances.toArray().tolist()
+        
         # Also save metadata
         with open("./model_metrics.txt", "w") as f:
             f.write(f"Model: GradientBoosting Regressor\n")
             f.write(f"RMSE: {rmse}\n")
             f.write(f"MAE: {mae}\n")
-            f.write(f"Trees: {model.numTrees}\n")
+            f.write(f"Trees: 20\n")
             f.write(f"Max Depth: 5\n")
-            f.write(f"Feature Importances: {model.featureImportances.toArray()}\n")
+            f.write(f"Feature Importances: {feature_importances}\n")
             f.write(f"Batch: {batch_id}\n")
+            f.write(f"Timestamp: {datetime.now().isoformat()}\n")
+        
+        # Save to metrics history for visualization
+        history = load_metrics_history()
+        history.append({
+            "batch": batch_id,
+            "rmse": float(rmse),
+            "mae": float(mae),
+            "trees": 20,
+            "feature_importances": feature_importances,
+            "timestamp": datetime.now().isoformat()
+        })
+        save_metrics_history(history)
+        
     except Exception as e:
         print(f"   ⚠️  Error saving model: {e}")
 

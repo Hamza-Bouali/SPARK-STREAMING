@@ -26,6 +26,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 COPY bitcoin_producer.py .
 COPY spark_realtime_ml.py .
 COPY api_service.py .
+COPY realtime_dashboard.py .
 COPY coin_Bitcoin.csv .
 
 # Create directories for model and checkpoints

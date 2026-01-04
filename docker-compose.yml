@@ -84,22 +84,24 @@ services:
       - ./checkpoint:/app/checkpoint
       - ./bitcoin_model:/app/bitcoin_model
       - ./model_metrics.txt:/app/model_metrics.txt
+      - ./metrics_history.json:/app/metrics_history.json
     restart: unless-stopped
     networks:
       - default
 
-  api-service:
+  dashboard:
     build: .
-    container_name: api-service
+    container_name: realtime-dashboard
     depends_on:
       - spark-streaming
-    command: python api_service.py
+    command: streamlit run realtime_dashboard.py --server.port=8501 --server.address=0.0.0.0
     ports:
-      - "8000:8000"
+      - "8501:8501"
     environment:
       - JAVA_HOME=/usr/lib/jvm/temurin-17-jre-amd64
     volumes:
-      - ./bitcoin_model:/app/bitcoin_model
+      - ./model_metrics.txt:/app/model_metrics.txt
+      - ./metrics_history.json:/app/metrics_history.json
     restart: unless-stopped
     networks:
       - default

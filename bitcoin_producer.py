@@ -25,8 +25,8 @@ producer = KafkaProducer(
     value_serializer=lambda v: json.dumps(v).encode("utf-8")
 )
 
-print(f"📡 Bitcoin Producer started... Connecting to Kafka at {kafka_servers}")
-print(f"📊 Total records to send: {len(df)}")
+print(f" Bitcoin Producer started... Connecting to Kafka at {kafka_servers}")
+print(f" Total records to send: {len(df)}")
 
 # 3) Send each DataFrame row to Kafka
 for idx, row in df.iterrows():
@@ -48,7 +48,7 @@ for idx, row in df.iterrows():
     producer.send("bitcoin_prices", message)
     print(f"➡ Sent: {message}")
 
-    time.sleep(0.000005)   # Wait 0.3 sec — simulate streaming
+    time.sleep(0.005)   # simulate streaming
 
 print("\n✔ All data has been sent to Kafka!")
 producer.flush()
