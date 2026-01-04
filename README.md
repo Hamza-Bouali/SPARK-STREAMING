@@ -1,64 +1,60 @@
-# Bitcoin Real-time ML Pipeline (Kafka + Spark + Streamlit)
+# Bitcoin Real-time ML Pipeline
 
-End-to-end demo that streams live BTC-USD prices from Yahoo Finance into Kafka, trains a Gradient Boosting Tree regressor on each micro-batch with Spark Structured Streaming, and visualizes metrics in a Streamlit dashboard.
+End-to-end demo: stream BTC-USD prices into Kafka, train a per-batch Gradient Boosting Tree regressor with Spark Structured Streaming, surface metrics to a Streamlit dashboard, and expose an optional FastAPI endpoint for predictions.
 
-## Stack
-- Kafka + Zookeeper (Confluent images)
-- Spark 4.1.0 (Structured Streaming + MLlib GBTRegressor)
-- Python 3.12, kafka-python, yfinance, pandas
-- Streamlit dashboard for RMSE/MAE + feature importances
-- Docker Compose for orchestration
+## Architecture (Compose)
+- Kafka + Zookeeper (Confluent) for ingestion
+- Spark 4.1.0 Structured Streaming + MLlib GBTRegressor (20 iterations, maxDepth 5)
+- Producer (yfinance → Kafka) simulating live ticks
+- Dashboard (Streamlit) reading on-disk metrics/history
+- API (FastAPI/uvicorn) loading the latest model from `bitcoin_model/`
+- Docker Compose orchestrates all services
 
 ## Components
-- Producer: downloads BTC-USD via yfinance and pushes JSON rows to Kafka topic `bitcoin_prices` ([bitcoin_producer.py](bitcoin_producer.py))
-- Streaming trainer: consumes Kafka, cleans data, trains GBTRegressor each batch, writes metrics/history and latest model ([spark_realtime_ml.py](spark_realtime_ml.py))
-- Dashboard: reads metrics files and shows live KPIs/feature importances ([realtime_dashboard.py](realtime_dashboard.py))
-- Compose stack: services + volumes ([docker-compose.yml](docker-compose.yml))
+- Producer: [bitcoin_producer.py](bitcoin_producer.py) → topic `bitcoin_prices`
+- Streaming trainer: [spark_realtime_ml.py](spark_realtime_ml.py) trains GBT on each micro-batch, writes `model_metrics.txt` (current) and `metrics_history.json` (append-only), saves model to `bitcoin_model/`
+- Dashboard: [realtime_dashboard.py](realtime_dashboard.py) shows RMSE/MAE, batch number, feature importances
+- API: [api_service.py](api_service.py) served via uvicorn on port 8000 (loads model from `bitcoin_model/`)
+- Compose: [docker-compose.yml](docker-compose.yml) wires everything
 
 ## Prerequisites
 - Docker + Docker Compose
-- Ports free: 2181, 7077, 8080, 8501, 9092
+- Free ports: 2181, 7077, 8080, 8501, 8000, 9092
 
-## Quick Start (Docker)
+## Quick Start
 ```bash
 # from project root
-# 1) Build images (needed after code changes)
-docker compose build
-
-# 2) Start all services
-docker compose up -d
-
-# 3) Check services
-docker compose ps
-
-# 4) Watch streaming logs
-docker compose logs -f spark-streaming
-
-# 5) Open dashboard
-http://localhost:8501
+docker compose build          # needed after code changes
+docker compose up -d          # start all services
+docker compose ps             # verify containers
+docker compose logs -f spark-streaming   # watch training
 ```
 
-## Environment knobs
-- `KAFKA_BOOTSTRAP_SERVERS` (default `kafka:29092` inside compose, `localhost:9092` outside)
-- `BITCOIN_PERIOD` (default `2y`) and `BITCOIN_INTERVAL` (default `1h`) for the producer download window
-- Volumes mounted to host: `checkpoint/`, `bitcoin_model/`, `model_metrics.txt`, `metrics_history.json`
+### URLs
+- Dashboard: http://localhost:8501
+- Kafka UI: http://localhost:8080
+- API (if enabled): http://localhost:8000/docs
 
-## What to expect
-- Producer sends every row with a short delay to simulate streaming; exits when done.
-- Spark trains a GBT model per batch; saves current metrics to `model_metrics.txt` and appends history to `metrics_history.json`.
-- Dashboard auto-refreshes and shows RMSE, MAE, trees (20 iterations), feature importances, and batch number.
+## Data and Model
+- Source: BTC-USD via yfinance, streamed as JSON rows (open, high, low, close, volume)
+- Features: open, high, low, volume; Label: close
+- Model: `GBTRegressor(maxIter=20, maxDepth=5, stepSize=0.1)`
+- Outputs:
+	- `model_metrics.txt` (latest RMSE/MAE/feature importances/batch)
+	- `metrics_history.json` (all batches)
+	- `bitcoin_model/` (latest saved model)
 
-## Useful commands
-- Latest metrics (host): `tail -n 20 model_metrics.txt`
-- Total batches recorded: `jq '.|length' metrics_history.json` (or use Python if jq not installed)
-- Restart streaming + producer after Kafka is up: `docker compose restart producer spark-streaming`
-- Stop everything and remove containers: `docker compose down`
+## Useful Commands
+- Latest metrics: `tail -n 20 model_metrics.txt`
+- Total batches recorded: `jq '.|length' metrics_history.json` (or small Python script if `jq` missing)
+- Restart trainer + producer after Kafka is up: `docker compose restart producer spark-streaming`
+- Clean slate (removes volumes/containers): `docker compose down -v` then reset `metrics_history.json` to `[]`
 
 ## Troubleshooting
-- Dashboard says "Waiting for model metrics": ensure `spark-streaming` is running and `model_metrics.txt` exists (not a directory). `docker compose logs spark-streaming --tail=50`.
-- No batches processed: check producer logs (`docker compose logs producer --tail=20`) and Kafka connectivity env.
-- Stale volumes: if you need a clean slate, remove `checkpoint/`, `bitcoin_model/`, and reset `metrics_history.json` to `[]` (avoid turning it into a directory when volume-mounted).
+- Dashboard shows “Waiting for model metrics”: ensure `spark-streaming` is running and `model_metrics.txt` exists (file, not directory). Check logs: `docker compose logs spark-streaming --tail=50`.
+- No batches processing: check producer logs `docker compose logs producer --tail=20`; confirm Kafka env `KAFKA_BOOTSTRAP_SERVERS` matches compose (`kafka:29092`).
+- API model load issues: confirm `bitcoin_model/` exists and was produced by the streaming job; restart API with `docker compose restart api`.
 
 ## Notes
-- Model: `GBTRegressor(maxIter=20, maxDepth=5, stepSize=0.1)` using features `open, high, low, volume`; label `close`.
-- Metrics files are simple JSON/text on disk to keep the demo minimal; replace with a datastore for production.
+- Metrics are file-based for simplicity; replace with a datastore for production.
+- The API currently loads the model from `bitcoin_model/`; regenerate the model by letting `spark-streaming` run.
