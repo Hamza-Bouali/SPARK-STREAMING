@@ -105,6 +105,21 @@ services:
     restart: unless-stopped
     networks:
       - default
+  
+  api:
+    build: .
+    container_name: bitcoin-api
+    depends_on:
+      - spark-streaming
+    command: uvicorn api_service:app --host 0.0.0.0 --port 8000
+    ports:
+      - "8000:8000"
+    environment:
+      - JAVA_HOME=/usr/lib/jvm/temurin-17-jre-amd64
+    volumes:
+      - ./bitcoin_model:/app/bitcoin_model
+      - ./model_metrics.txt:/app/model_metrics.txt
+      - ./metrics_history.json:/app/metrics_history.json
 
 networks:
   default:

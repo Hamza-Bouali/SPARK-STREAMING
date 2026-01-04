@@ -11,7 +11,7 @@ import yfinance as yf
 period = os.getenv("BITCOIN_PERIOD", "2y")  # Default: 7 days
 interval = os.getenv("BITCOIN_INTERVAL", "1h")  # Default: 1 hour
 
-print(f"📥 Downloading Bitcoin data: period={period}, interval={interval}")
+print(f"📥 Downloadxing Bitcoin data: period={period}, interval={interval}")
 df = yf.download("BTC-USD", period=period, interval=interval)
 
 # Reset index to make 'Date' a column
