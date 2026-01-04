@@ -1,11 +1,11 @@
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 from pyspark.sql import SparkSession
-from pyspark.ml.regression import LinearRegressionModel
+from pyspark.ml.regression import LinearRegressionModel, GBTRegressionModel
 from pyspark.ml.feature import VectorAssembler
 from pyspark.ml.linalg import Vectors
 import os
-from typing import List
+from typing import List, Optional
 
 app = FastAPI(title="Bitcoin Price Prediction API", version="1.0.0")
 
@@ -28,11 +28,28 @@ def load_model():
     try:
         if os.path.exists(model_path):
             spark = init_spark()
-            model = LinearRegressionModel.load(model_path)
-            print("✅ Model loaded successfully")
-            return True
+            
+            # Try to load as GBTRegressionModel first (what Spark is saving)
+            try:
+                print(f"🔄 Attempting to load GBT model from {model_path}")
+                model = GBTRegressionModel.load(model_path)
+                print("✅ Gradient Boosting Tree model loaded successfully")
+                return True
+            except Exception as e1:
+                print(f"⚠️  GBT load failed: {str(e1)[:100]}")
+                
+                # Fall back to LinearRegressionModel
+                try:
+                    print(f"🔄 Attempting to load Linear Regression model from {model_path}")
+                    model = LinearRegressionModel.load(model_path)
+                    print("✅ Linear Regression model loaded successfully")
+                    return True
+                except Exception as e2:
+                    print(f"❌ Linear Regression load also failed: {str(e2)[:100]}")
+                    print(f"❌ Could not load model with any type")
+                    return False
         else:
-            print("⚠️  Model not found. Please train the model first.")
+            print(f"⚠️  Model path does not exist: {model_path}")
             return False
     except Exception as e:
         print(f"❌ Error loading model: {e}")
@@ -58,10 +75,10 @@ class BatchPredictionResponse(BaseModel):
     count: int
 
 class ModelMetrics(BaseModel):
-    rmse: float = None
-    coefficients: List[float] = None
-    intercept: float = None
-    batch: int = None
+    rmse: Optional[float] = None
+    coefficients: Optional[List[float]] = None
+    intercept: Optional[float] = None
+    batch: Optional[int] = None
     available: bool
 
 @app.on_event("startup")
@@ -110,9 +127,14 @@ async def get_model_info():
         return ModelMetrics(available=False)
     
     try:
-        # Read metrics file if exists
-        metrics_file = "/tmp/model_metrics.txt"
-        if os.path.exists(metrics_file):
+        # Try to read metrics file - try both locations
+        metrics_file = None
+        if os.path.exists("./model_metrics.txt"):
+            metrics_file = "./model_metrics.txt"
+        elif os.path.exists("/tmp/model_metrics.txt"):
+            metrics_file = "/tmp/model_metrics.txt"
+        
+        if metrics_file:
             with open(metrics_file, "r") as f:
                 lines = f.readlines()
                 metrics = {}
@@ -121,25 +143,37 @@ async def get_model_info():
                         key, value = line.split(":", 1)
                         metrics[key.strip()] = value.strip()
                 
+                # Handle both LinearRegression and GBT models
+                coefficients = []
+                intercept = 0.0
+                
+                if hasattr(model, 'coefficients'):  # LinearRegressionModel
+                    coefficients = model.coefficients.toArray().tolist()
+                    intercept = float(model.intercept)
+                elif hasattr(model, 'trees'):  # GBTRegressionModel
+                    # For GBT, show number of trees instead
+                    coefficients = [1.0] * len(model.trees)  # Placeholder
+                
                 return ModelMetrics(
                     available=True,
                     rmse=float(metrics.get("RMSE", 0)),
-                    coefficients=[float(x) for x in metrics.get("Coefficients", "[]").strip("[]").split(",") if x],
-                    intercept=float(metrics.get("Intercept", 0)),
+                    coefficients=coefficients if coefficients else None,
+                    intercept=intercept if intercept else None,
                     batch=int(metrics.get("Batch", 0))
                 )
     except Exception as e:
         print(f"Error reading metrics: {e}")
     
+    # Return model info without coefficients for GBT
     return ModelMetrics(
         available=True,
-        coefficients=model.coefficients.toArray().tolist() if model else [],
-        intercept=float(model.intercept) if model else 0.0
+        coefficients=None,
+        intercept=None
     )
 
 @app.post("/predict", response_model=PredictionResponse)
-async def predict(request: PredictionRequest):
-    """Make a single prediction"""
+async def predict_post(request: PredictionRequest):
+    """Make a single prediction (POST)"""
     if model is None:
         # Try to load model
         if not load_model():
@@ -167,6 +201,43 @@ async def predict(request: PredictionRequest):
                 "high": request.high,
                 "low": request.low,
                 "volume": request.volume
+            },
+            model_available=True
+        )
+    
+    except Exception as e:
+        raise HTTPException(status_code=500, detail=f"Prediction error: {str(e)}")
+
+@app.get("/predict_simple", response_model=PredictionResponse)
+async def predict_get(open: float, high: float, low: float, volume: float):
+    """Make a single prediction (GET with query parameters)"""
+    if model is None:
+        # Try to load model
+        if not load_model():
+            raise HTTPException(
+                status_code=503,
+                detail="Model not available. Please train the model first by running the streaming pipeline."
+            )
+    
+    try:
+        # Create feature vector
+        features = Vectors.dense([open, high, low, volume])
+        
+        # Create DataFrame for prediction
+        data = [(features,)]
+        df = spark.createDataFrame(data, ["features"])
+        
+        # Make prediction
+        predictions = model.transform(df)
+        predicted_value = predictions.select("prediction").collect()[0][0]
+        
+        return PredictionResponse(
+            predicted_close=float(predicted_value),
+            input_features={
+                "open": open,
+                "high": high,
+                "low": low,
+                "volume": volume
             },
             model_available=True
         )

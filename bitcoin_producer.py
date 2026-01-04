@@ -20,10 +20,29 @@ df = df.reset_index()
 
 # 2) Create Kafka Producer (Docker or local)
 kafka_servers = os.getenv("KAFKA_BOOTSTRAP_SERVERS", "localhost:9092")
-producer = KafkaProducer(
-    bootstrap_servers=kafka_servers,
-    value_serializer=lambda v: json.dumps(v).encode("utf-8")
-)
+
+# Retry logic for Kafka connection
+max_retries = 10
+retry_count = 0
+producer = None
+while retry_count < max_retries:
+    try:
+        producer = KafkaProducer(
+            bootstrap_servers=kafka_servers,
+            value_serializer=lambda v: json.dumps(v).encode("utf-8"),
+            request_timeout_ms=10000
+        )
+        print(f"✅ Successfully connected to Kafka at {kafka_servers}")
+        break
+    except Exception as e:
+        retry_count += 1
+        if retry_count < max_retries:
+            print(f"⚠️  Kafka connection attempt {retry_count}/{max_retries} failed: {e}")
+            print(f"   Retrying in 3 seconds...")
+            time.sleep(3)
+        else:
+            print(f"❌ Failed to connect to Kafka after {max_retries} attempts")
+            raise
 
 print(f" Bitcoin Producer started... Connecting to Kafka at {kafka_servers}")
 print(f" Total records to send: {len(df)}")
