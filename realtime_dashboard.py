@@ -8,11 +8,11 @@ import pandas as pd
 import numpy as np
 import json
 import os
-from pathlib import Path
 import plotly.graph_objects as go
 import plotly.express as px
 from datetime import datetime, timedelta
 import time
+from pathlib import Path
 
 # Page configuration
 st.set_page_config(
@@ -47,16 +47,17 @@ st.markdown("---")
 if 'metrics_history' not in st.session_state:
     st.session_state.metrics_history = []
 
-# Paths
-METRICS_FILE = "/home/azureuser/bitcoin_spark/bitcoin-realtime-analytics/model_metrics.txt"
-PREDICTIONS_LOG = "/home/azureuser/bitcoin_spark/bitcoin-realtime-analytics/predictions_log.json"
-METRICS_HISTORY_FILE = "/home/azureuser/bitcoin_spark/bitcoin-realtime-analytics/metrics_history.json"
+# Paths (resolve relative to this file so they work inside the container)
+BASE_DIR = Path(__file__).resolve().parent
+METRICS_FILE = BASE_DIR / "model_metrics.txt"
+PREDICTIONS_LOG = BASE_DIR / "predictions_log.json"
+METRICS_HISTORY_FILE = BASE_DIR / "metrics_history.json"
 
 def load_current_metrics():
     """Load the latest model metrics from file"""
     try:
-        if os.path.exists(METRICS_FILE):
-            with open(METRICS_FILE, 'r') as f:
+        if METRICS_FILE.exists():
+            with METRICS_FILE.open('r') as f:
                 content = f.read()
                 metrics = {}
                 for line in content.strip().split('\n'):
@@ -71,8 +72,8 @@ def load_current_metrics():
 def load_metrics_history():
     """Load historical metrics data"""
     try:
-        if os.path.exists(METRICS_HISTORY_FILE):
-            with open(METRICS_HISTORY_FILE, 'r') as f:
+        if METRICS_HISTORY_FILE.exists():
+            with METRICS_HISTORY_FILE.open('r') as f:
                 return json.load(f)
     except Exception as e:
         st.warning(f"Error loading history: {e}")
